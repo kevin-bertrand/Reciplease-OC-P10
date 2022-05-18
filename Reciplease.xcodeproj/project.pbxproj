@@ -14,19 +14,10 @@
 		069637222834E2CC0028AC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069637212834E2CC0028AC0D /* Assets.xcassets */; };
 		069637252834E2CC0028AC0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069637232834E2CC0028AC0D /* LaunchScreen.storyboard */; };
 		069637302834E2CC0028AC0D /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696372F2834E2CC0028AC0D /* RecipleaseTests.swift */; };
-		0696373A2834E2CC0028AC0D /* RecipleaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069637392834E2CC0028AC0D /* RecipleaseUITests.swift */; };
-		0696373C2834E2CC0028AC0D /* RecipleaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696373B2834E2CC0028AC0D /* RecipleaseUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		0696372C2834E2CC0028AC0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0696370D2834E2CA0028AC0D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 069637142834E2CA0028AC0D;
-			remoteInfo = Reciplease;
-		};
-		069637362834E2CC0028AC0D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0696370D2834E2CA0028AC0D /* Project object */;
 			proxyType = 1;
@@ -46,9 +37,6 @@
 		069637262834E2CC0028AC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0696372B2834E2CC0028AC0D /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0696372F2834E2CC0028AC0D /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
-		069637352834E2CC0028AC0D /* RecipleaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		069637392834E2CC0028AC0D /* RecipleaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseUITests.swift; sourceTree = "<group>"; };
-		0696373B2834E2CC0028AC0D /* RecipleaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +54,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		069637322834E2CC0028AC0D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +62,6 @@
 			children = (
 				069637172834E2CA0028AC0D /* Reciplease */,
 				0696372E2834E2CC0028AC0D /* RecipleaseTests */,
-				069637382834E2CC0028AC0D /* RecipleaseUITests */,
 				069637162834E2CA0028AC0D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +71,6 @@
 			children = (
 				069637152834E2CA0028AC0D /* Reciplease.app */,
 				0696372B2834E2CC0028AC0D /* RecipleaseTests.xctest */,
-				069637352834E2CC0028AC0D /* RecipleaseUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,13 +78,10 @@
 		069637172834E2CA0028AC0D /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
-				069637182834E2CA0028AC0D /* AppDelegate.swift */,
-				0696371A2834E2CA0028AC0D /* SceneDelegate.swift */,
-				0696371C2834E2CA0028AC0D /* ViewController.swift */,
-				0696371E2834E2CA0028AC0D /* Main.storyboard */,
-				069637212834E2CC0028AC0D /* Assets.xcassets */,
-				069637232834E2CC0028AC0D /* LaunchScreen.storyboard */,
-				069637262834E2CC0028AC0D /* Info.plist */,
+				0696374B283509CE0028AC0D /* Supporting Files */,
+				0696374A283509CA0028AC0D /* Controller */,
+				06963749283509C60028AC0D /* View */,
+				06963748283509C10028AC0D /* Model */,
 			);
 			path = Reciplease;
 			sourceTree = "<group>";
@@ -118,13 +94,39 @@
 			path = RecipleaseTests;
 			sourceTree = "<group>";
 		};
-		069637382834E2CC0028AC0D /* RecipleaseUITests */ = {
+		06963748283509C10028AC0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				069637392834E2CC0028AC0D /* RecipleaseUITests.swift */,
-				0696373B2834E2CC0028AC0D /* RecipleaseUITestsLaunchTests.swift */,
 			);
-			path = RecipleaseUITests;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		06963749283509C60028AC0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0696371E2834E2CA0028AC0D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0696374A283509CA0028AC0D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0696371C2834E2CA0028AC0D /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0696374B283509CE0028AC0D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				069637262834E2CC0028AC0D /* Info.plist */,
+				069637232834E2CC0028AC0D /* LaunchScreen.storyboard */,
+				069637212834E2CC0028AC0D /* Assets.xcassets */,
+				069637182834E2CA0028AC0D /* AppDelegate.swift */,
+				0696371A2834E2CA0028AC0D /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,24 +167,6 @@
 			productReference = 0696372B2834E2CC0028AC0D /* RecipleaseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		069637342834E2CC0028AC0D /* RecipleaseUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 069637452834E2CC0028AC0D /* Build configuration list for PBXNativeTarget "RecipleaseUITests" */;
-			buildPhases = (
-				069637312834E2CC0028AC0D /* Sources */,
-				069637322834E2CC0028AC0D /* Frameworks */,
-				069637332834E2CC0028AC0D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				069637372834E2CC0028AC0D /* PBXTargetDependency */,
-			);
-			name = RecipleaseUITests;
-			productName = RecipleaseUITests;
-			productReference = 069637352834E2CC0028AC0D /* RecipleaseUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +181,6 @@
 						CreatedOnToolsVersion = 13.4;
 					};
 					0696372A2834E2CC0028AC0D = {
-						CreatedOnToolsVersion = 13.4;
-						TestTargetID = 069637142834E2CA0028AC0D;
-					};
-					069637342834E2CC0028AC0D = {
 						CreatedOnToolsVersion = 13.4;
 						TestTargetID = 069637142834E2CA0028AC0D;
 					};
@@ -221,7 +201,6 @@
 			targets = (
 				069637142834E2CA0028AC0D /* Reciplease */,
 				0696372A2834E2CC0028AC0D /* RecipleaseTests */,
-				069637342834E2CC0028AC0D /* RecipleaseUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,13 +217,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		069637292834E2CC0028AC0D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		069637332834E2CC0028AC0D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,15 +244,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		069637312834E2CC0028AC0D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0696373A2834E2CC0028AC0D /* RecipleaseUITests.swift in Sources */,
-				0696373C2834E2CC0028AC0D /* RecipleaseUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -288,11 +251,6 @@
 			isa = PBXTargetDependency;
 			target = 069637142834E2CA0028AC0D /* Reciplease */;
 			targetProxy = 0696372C2834E2CC0028AC0D /* PBXContainerItemProxy */;
-		};
-		069637372834E2CC0028AC0D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 069637142834E2CA0028AC0D /* Reciplease */;
-			targetProxy = 069637362834E2CC0028AC0D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -439,12 +397,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6MAUVS763K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Reciplease/Info.plist;
+				INFOPLIST_FILE = "Reciplease/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +414,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -467,12 +427,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6MAUVS763K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Reciplease/Info.plist;
+				INFOPLIST_FILE = "Reciplease/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,7 +444,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -526,42 +488,6 @@
 			};
 			name = Release;
 		};
-		069637462834E2CC0028AC0D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6MAUVS763K;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.desyntic.RecipleaseUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Reciplease;
-			};
-			name = Debug;
-		};
-		069637472834E2CC0028AC0D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6MAUVS763K;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.desyntic.RecipleaseUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Reciplease;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,15 +514,6 @@
 			buildConfigurations = (
 				069637432834E2CC0028AC0D /* Debug */,
 				069637442834E2CC0028AC0D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		069637452834E2CC0028AC0D /* Build configuration list for PBXNativeTarget "RecipleaseUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				069637462834E2CC0028AC0D /* Debug */,
-				069637472834E2CC0028AC0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
