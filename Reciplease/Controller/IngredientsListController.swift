@@ -43,13 +43,26 @@ class IngredientListController: UIViewController {
         }
         
         // Download recipes
-        self.performSegue(withIdentifier: _segueToRecipeList, sender: self)
+        _recipeManager.getRecipes(forIngredients: _ingredients) { data in
+            if let data = data {
+                self._recipes = data
+                self.performSegue(withIdentifier: self._segueToRecipeList, sender: self)
+            }
+        }
+    }
+    
+    // MARK: Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == _segueToRecipeList, let recipeListVC = segue.destination as? RecipeListController else { return }
+        recipeListVC.recipeList = _recipes
     }
     
     // MARK: Private
     // MARK: Properties
     private var _ingredients: [String] = []
-    private var _segueToRecipeList = "segueToRecipeList"
+    private let _segueToRecipeList = "segueToRecipeList"
+    private let _recipeManager = RecipeManager()
+    private var _recipes: [Recipe] = []
     
     // MARK: Methods
     private func showAlert() {
@@ -57,7 +70,6 @@ class IngredientListController: UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         present(alert, animated: true)
     }
-    
 }
 
 // MARK: Delegate extension
