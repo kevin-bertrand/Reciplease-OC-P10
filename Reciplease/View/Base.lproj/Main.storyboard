@@ -325,7 +325,7 @@
         <!--Reciplease-->
         <scene sceneID="AQ1-xr-wmB">
             <objects>
-                <viewController id="Ni9-zW-reE" sceneMemberID="viewController">
+                <viewController id="Ni9-zW-reE" customClass="RecipeListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YqH-A4-ji1">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -334,14 +334,14 @@
                                 <rect key="frame" x="0.0" y="96" width="428" height="739"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" rowHeight="168" id="13Z-4e-5Gs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" rowHeight="168" id="13Z-4e-5Gs" customClass="RecipeCellView" customModule="Reciplease" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="13Z-4e-5Gs" id="xMC-QW-zeJ">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="168"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqb-Kd-r3k">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqb-Kd-r3k">
                                                     <rect key="frame" x="0.0" y="0.0" width="428" height="168"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="170" id="6N3-nb-Xd5"/>
@@ -353,13 +353,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plate title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvZ-cI-iPH">
                                                             <rect key="frame" x="10" y="5" width="408" height="30"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="Foreground"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utl-fi-BcK">
                                                             <rect key="frame" x="10" y="39.999999999999986" width="408" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="Foreground"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -419,7 +419,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Lz9-mn-7IG" kind="show" identifier="segueToDetails" id="Eng-Dp-Qg5"/>
+                                            <outlet property="ingredientsLabel" destination="utl-fi-BcK" id="vfe-z1-cvu"/>
+                                            <outlet property="plateImageView" destination="bqb-Kd-r3k" id="zqB-OV-Oq3"/>
+                                            <outlet property="plateTitleLabel" destination="dvZ-cI-iPH" id="et3-qV-Lyy"/>
+                                            <outlet property="timeLabel" destination="GHU-9t-J4d" id="blA-Zf-5E8"/>
+                                            <outlet property="yieldLabel" destination="fFg-2G-iNx" id="BZa-F5-t29"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -435,6 +439,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="Pq6-fq-oRo"/>
+                    <connections>
+                        <outlet property="recipeTableView" destination="eu6-v3-X5x" id="9i1-wp-Er5"/>
+                        <segue destination="Lz9-mn-7IG" kind="show" identifier="segueToDetails" id="Qvz-qx-vUy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8D0-4N-T0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -443,12 +451,12 @@
         <!--Reciplease-->
         <scene sceneID="GNM-ee-ypH">
             <objects>
-                <viewController id="Lz9-mn-7IG" sceneMemberID="viewController">
+                <viewController id="Lz9-mn-7IG" customClass="DetailViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qql-48-j3B">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9fc-J3-SxW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9fc-J3-SxW">
                                 <rect key="frame" x="0.0" y="88" width="428" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Oj6-6O-Psq"/>
@@ -495,12 +503,12 @@
                                     <constraint firstItem="7lW-45-qIJ" firstAttribute="centerY" secondItem="Uq9-bM-ZvC" secondAttribute="centerY" id="pBb-pF-Ukb"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v95-6n-9Wh">
-                                <rect key="frame" x="8" y="433.33333333333326" width="412" height="326.66666666666674"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v95-6n-9Wh">
+                                <rect key="frame" x="8" y="434.33333333333326" width="412" height="325.66666666666674"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" name="Foreground"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99C-jO-m6b">
@@ -516,8 +524,8 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqn-DL-GXB">
-                                <rect key="frame" x="8" y="396" width="412" height="29.333333333333314"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="23"/>
+                                <rect key="frame" x="8" y="396" width="412" height="30.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
                                 <color key="textColor" name="Foreground"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -546,6 +554,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="CAK-JA-98U"/>
+                    <connections>
+                        <outlet property="ingredientsTextView" destination="v95-6n-9Wh" id="PJp-Gw-OuZ"/>
+                        <outlet property="plateImage" destination="9fc-J3-SxW" id="zOJ-24-r29"/>
+                        <outlet property="plateNameLabel" destination="z3E-UI-yeh" id="yhd-Dl-jqp"/>
+                        <outlet property="timeLabel" destination="703-I0-tSr" id="sMf-5q-oiC"/>
+                        <outlet property="yieldLabel" destination="CKa-Tc-t5S" id="WT1-dk-MeI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jpG-Pf-qIP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

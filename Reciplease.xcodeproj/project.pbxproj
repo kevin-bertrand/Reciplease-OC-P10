@@ -21,6 +21,10 @@
 		06D05DBF283CE2B5009545AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 06D05DBE283CE2B5009545AE /* Alamofire */; };
 		06D05DC2283CE94E009545AE /* RecipeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DC1283CE94E009545AE /* RecipeListController.swift */; };
 		06D05DC4283CEDED009545AE /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DC3283CEDED009545AE /* Recipe.swift */; };
+		06D05DC6283CFDB3009545AE /* RecipeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DC5283CFDB3009545AE /* RecipeCellView.swift */; };
+		06D05DC9283D04AE009545AE /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DC8283D04AE009545AE /* Int.swift */; };
+		06D05DCB283D05B4009545AE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DCA283D05B4009545AE /* UIImageView.swift */; };
+		06D05DCD283D1643009545AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DCC283D1643009545AE /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,10 @@
 		06D05DBB283CE1BE009545AE /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		06D05DC1283CE94E009545AE /* RecipeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListController.swift; sourceTree = "<group>"; };
 		06D05DC3283CEDED009545AE /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		06D05DC5283CFDB3009545AE /* RecipeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellView.swift; sourceTree = "<group>"; };
+		06D05DC8283D04AE009545AE /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		06D05DCA283D05B4009545AE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		06D05DCC283D1643009545AE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 		069637172834E2CA0028AC0D /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				06D05DC7283D049F009545AE /* Extensions */,
 				0696374B283509CE0028AC0D /* Supporting Files */,
 				0696374A283509CA0028AC0D /* Controller */,
 				06963749283509C60028AC0D /* View */,
@@ -120,11 +129,11 @@
 		06963749283509C60028AC0D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				06D05DC0283CE7E8009545AE /* New Group */,
 				0696371E2834E2CA0028AC0D /* Main.storyboard */,
 				06D05DB1283CC86E009545AE /* InfoTilesView.swift */,
 				06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */,
 				06D05DB9283CDBED009545AE /* IngredientCellView.swift */,
+				06D05DC5283CFDB3009545AE /* RecipeCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,6 +143,7 @@
 			children = (
 				06D05DB5283CD43B009545AE /* IngredientsListController.swift */,
 				06D05DC1283CE94E009545AE /* RecipeListController.swift */,
+				06D05DCC283D1643009545AE /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -150,11 +160,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		06D05DC0283CE7E8009545AE /* New Group */ = {
+		06D05DC7283D049F009545AE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				06D05DC8283D04AE009545AE /* Int.swift */,
+				06D05DCA283D05B4009545AE /* UIImageView.swift */,
 			);
-			path = "New Group";
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,12 +276,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06D05DCD283D1643009545AE /* DetailViewController.swift in Sources */,
 				06D05DB6283CD43B009545AE /* IngredientsListController.swift in Sources */,
 				06D05DBA283CDBED009545AE /* IngredientCellView.swift in Sources */,
 				069637192834E2CA0028AC0D /* AppDelegate.swift in Sources */,
 				06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */,
+				06D05DCB283D05B4009545AE /* UIImageView.swift in Sources */,
 				06D05DBC283CE1BE009545AE /* RecipeManager.swift in Sources */,
 				06D05DC2283CE94E009545AE /* RecipeListController.swift in Sources */,
+				06D05DC6283CFDB3009545AE /* RecipeCellView.swift in Sources */,
+				06D05DC9283D04AE009545AE /* Int.swift in Sources */,
 				06D05DC4283CEDED009545AE /* Recipe.swift in Sources */,
 				06D05DB2283CC86E009545AE /* InfoTilesView.swift in Sources */,
 				0696371B2834E2CA0028AC0D /* SceneDelegate.swift in Sources */,

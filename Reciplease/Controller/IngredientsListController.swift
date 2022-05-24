@@ -52,6 +52,7 @@ class IngredientListController: UIViewController {
     }
     
     // MARK: Methods
+    /// Prepare the segue to pass data to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == _segueToRecipeList, let recipeListVC = segue.destination as? RecipeListController else { return }
         recipeListVC.recipeList = _recipes

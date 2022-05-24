@@ -14,6 +14,7 @@ class InfoTilesView: UIView {
     }
 
     private func _drawBorder() {
+        self.clipsToBounds = true
         self.layer.cornerRadius = 5
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 1
