@@ -14,6 +14,8 @@
 		069637222834E2CC0028AC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069637212834E2CC0028AC0D /* Assets.xcassets */; };
 		069637252834E2CC0028AC0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069637232834E2CC0028AC0D /* LaunchScreen.storyboard */; };
 		069637302834E2CC0028AC0D /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696372F2834E2CC0028AC0D /* RecipleaseTests.swift */; };
+		06D05DB2283CC86E009545AE /* InfoTilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB1283CC86E009545AE /* InfoTilesView.swift */; };
+		06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		069637262834E2CC0028AC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0696372B2834E2CC0028AC0D /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0696372F2834E2CC0028AC0D /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
+		06D05DB1283CC86E009545AE /* InfoTilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTilesView.swift; sourceTree = "<group>"; };
+		06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegradedGrayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				0696371E2834E2CA0028AC0D /* Main.storyboard */,
+				06D05DB1283CC86E009545AE /* InfoTilesView.swift */,
+				06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,6 +238,8 @@
 			files = (
 				0696371D2834E2CA0028AC0D /* ViewController.swift in Sources */,
 				069637192834E2CA0028AC0D /* AppDelegate.swift in Sources */,
+				06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */,
+				06D05DB2283CC86E009545AE /* InfoTilesView.swift in Sources */,
 				0696371B2834E2CA0028AC0D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
