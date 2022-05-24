@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		069637192834E2CA0028AC0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069637182834E2CA0028AC0D /* AppDelegate.swift */; };
 		0696371B2834E2CA0028AC0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696371A2834E2CA0028AC0D /* SceneDelegate.swift */; };
-		0696371D2834E2CA0028AC0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696371C2834E2CA0028AC0D /* ViewController.swift */; };
 		069637202834E2CA0028AC0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0696371E2834E2CA0028AC0D /* Main.storyboard */; };
 		069637222834E2CC0028AC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069637212834E2CC0028AC0D /* Assets.xcassets */; };
 		069637252834E2CC0028AC0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069637232834E2CC0028AC0D /* LaunchScreen.storyboard */; };
 		069637302834E2CC0028AC0D /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696372F2834E2CC0028AC0D /* RecipleaseTests.swift */; };
 		06D05DB2283CC86E009545AE /* InfoTilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB1283CC86E009545AE /* InfoTilesView.swift */; };
 		06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */; };
+		06D05DB6283CD43B009545AE /* IngredientsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB5283CD43B009545AE /* IngredientsListController.swift */; };
+		06D05DBA283CDBED009545AE /* IngredientCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB9283CDBED009545AE /* IngredientCellView.swift */; };
+		06D05DBC283CE1BE009545AE /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DBB283CE1BE009545AE /* RecipeManager.swift */; };
+		06D05DBF283CE2B5009545AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 06D05DBE283CE2B5009545AE /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +35,6 @@
 		069637152834E2CA0028AC0D /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		069637182834E2CA0028AC0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0696371A2834E2CA0028AC0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0696371C2834E2CA0028AC0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0696371F2834E2CA0028AC0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		069637212834E2CC0028AC0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		069637242834E2CC0028AC0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +43,9 @@
 		0696372F2834E2CC0028AC0D /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
 		06D05DB1283CC86E009545AE /* InfoTilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTilesView.swift; sourceTree = "<group>"; };
 		06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegradedGrayView.swift; sourceTree = "<group>"; };
+		06D05DB5283CD43B009545AE /* IngredientsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsListController.swift; sourceTree = "<group>"; };
+		06D05DB9283CDBED009545AE /* IngredientCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCellView.swift; sourceTree = "<group>"; };
+		06D05DBB283CE1BE009545AE /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06D05DBF283CE2B5009545AE /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +107,7 @@
 		06963748283509C10028AC0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				06D05DBB283CE1BE009545AE /* RecipeManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,9 +115,11 @@
 		06963749283509C60028AC0D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				06D05DC0283CE7E8009545AE /* New Group */,
 				0696371E2834E2CA0028AC0D /* Main.storyboard */,
 				06D05DB1283CC86E009545AE /* InfoTilesView.swift */,
 				06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */,
+				06D05DB9283CDBED009545AE /* IngredientCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,7 +127,7 @@
 		0696374A283509CA0028AC0D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0696371C2834E2CA0028AC0D /* ViewController.swift */,
+				06D05DB5283CD43B009545AE /* IngredientsListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -133,6 +142,13 @@
 				0696371A2834E2CA0028AC0D /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		06D05DC0283CE7E8009545AE /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +167,9 @@
 			dependencies = (
 			);
 			name = Reciplease;
+			packageProductDependencies = (
+				06D05DBE283CE2B5009545AE /* Alamofire */,
+			);
 			productName = Reciplease;
 			productReference = 069637152834E2CA0028AC0D /* Reciplease.app */;
 			productType = "com.apple.product-type.application";
@@ -201,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 0696370C2834E2CA0028AC0D;
+			packageReferences = (
+				06D05DBD283CE2B5009545AE /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 069637162834E2CA0028AC0D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,9 +258,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0696371D2834E2CA0028AC0D /* ViewController.swift in Sources */,
+				06D05DB6283CD43B009545AE /* IngredientsListController.swift in Sources */,
+				06D05DBA283CDBED009545AE /* IngredientCellView.swift in Sources */,
 				069637192834E2CA0028AC0D /* AppDelegate.swift in Sources */,
 				06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */,
+				06D05DBC283CE1BE009545AE /* RecipeManager.swift in Sources */,
 				06D05DB2283CC86E009545AE /* InfoTilesView.swift in Sources */,
 				0696371B2834E2CA0028AC0D /* SceneDelegate.swift in Sources */,
 			);
@@ -527,6 +551,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		06D05DBD283CE2B5009545AE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		06D05DBE283CE2B5009545AE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06D05DBD283CE2B5009545AE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0696370D2834E2CA0028AC0D /* Project object */;
 }
