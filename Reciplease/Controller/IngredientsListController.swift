@@ -46,7 +46,8 @@ class IngredientListController: UIViewController {
         loadingView.isHidden = false
         
         // Download recipes
-        _recipeManager.getRecipes(forIngredients: _ingredients) { data in
+        _recipeManager.getRecipes(forIngredients: _ingredients) { [weak self] data in
+            guard let self = self else { return }
             self.loadingView.isHidden = true
             self._ingredients = []
             self.ingredientTableView.reloadData()
