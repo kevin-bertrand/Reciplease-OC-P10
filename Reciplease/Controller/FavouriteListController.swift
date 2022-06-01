@@ -49,6 +49,8 @@ class FavouriteListController: UIViewController {
     /// Get recipes from CoreData
     private func _downloadRecipes() {
         let request: NSFetchRequest<FavouriteRecipes> = FavouriteRecipes.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \FavouriteRecipes.label, ascending: true)]
+        
         do {
             let recipes = try CoreDataStack.sharedInstance.viewContext.fetch(request)
             
@@ -64,7 +66,6 @@ class FavouriteListController: UIViewController {
         } catch {
             print("error during download")
         }
-       
     }
 }
 
