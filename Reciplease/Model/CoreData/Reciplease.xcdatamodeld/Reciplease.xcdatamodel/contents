@@ -2,8 +2,8 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FavouriteRecipes" representedClassName=".FavouriteRecipes" syncable="YES" codeGenerationType="category">
         <attribute name="image" attributeType="String"/>
-        <attribute name="ingredientLines" attributeType="Transformable" valueTransformerName="ingredientLines" customClassName=".[String]"/>
-        <attribute name="ingredients" attributeType="Transformable" valueTransformerName="ingredients" customClassName=".[String]"/>
+        <attribute name="ingredientLines" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName=".[String]"/>
+        <attribute name="ingredients" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName=".[String]"/>
         <attribute name="isFavourite" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="label" attributeType="String"/>
         <attribute name="totalTime" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>

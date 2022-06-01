@@ -13,6 +13,7 @@ class IngredientListController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var ingredientTextField: UITextField!
     @IBOutlet weak var ingredientTableView: UITableView!
+    @IBOutlet weak var loadingView: UIView!
     
     // MARK: View life cycle
     override func viewDidLoad() {
@@ -42,8 +43,13 @@ class IngredientListController: UIViewController {
             return
         }
         
+        loadingView.isHidden = false
+        
         // Download recipes
         _recipeManager.getRecipes(forIngredients: _ingredients) { data in
+            self.loadingView.isHidden = true
+            self._ingredients = []
+            self.ingredientTableView.reloadData()
             if let data = data {
                 self._recipes = data
                 self.performSegue(withIdentifier: self._segueToRecipeList, sender: self)

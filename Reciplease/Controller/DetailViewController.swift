@@ -49,10 +49,9 @@ class DetailViewController: UIViewController {
     /// Configure the view when it is shown
     private func _configureView() {
         guard let recipe = recipe else { return }
+        plateImage.image = UIImage(named: "default_recipe_background")
         if let url = recipe.image {
             plateImage.dowloadFrom(url)
-        } else {
-            plateImage.image = UIImage(named: "default_recipe_background")
         }
         plateNameLabel.text = recipe.label
         yieldLabel.text = "\(recipe.yield) 👍"

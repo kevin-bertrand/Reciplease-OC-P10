@@ -16,6 +16,7 @@ class RecipeCellView: UITableViewCell {
     
     // MARK: Method
     func configure(withRecipe recipe: RecipeInformations) {
+        plateImageView.image = UIImage(named: "default_recipe_background")
         if let url = recipe.image {
             plateImageView.dowloadFrom(url)
         }
