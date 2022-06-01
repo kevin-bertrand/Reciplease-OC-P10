@@ -13,6 +13,7 @@ class FavouriteListController: UIViewController {
     // MARK: Public
     // MARK: Outlet
     @IBOutlet weak var favouriteRecipeTableView: UITableView!
+    @IBOutlet weak var noFavouriteView: UIView!
     
     // MARK: Properties
     
@@ -82,6 +83,12 @@ class FavouriteListController: UIViewController {
             favouriteRecipeTableView.reloadData()
         } catch {
             print("error during download")
+        }
+        
+        if _favouriteRecipesList.count == 0 {
+            noFavouriteView.isHidden = false
+        } else {
+            noFavouriteView.isHidden = true
         }
     }
 }

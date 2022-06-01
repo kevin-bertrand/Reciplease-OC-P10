@@ -112,12 +112,56 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lus-k4-h9S" userLabel="No favourite view">
+                                <rect key="frame" x="0.0" y="88" width="428" height="755"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="b9R-AX-Q7P">
+                                        <rect key="frame" x="0.0" y="297.66666666666669" width="428" height="159.66666666666669"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no favourites." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm3-lf-2S7">
+                                                <rect key="frame" x="105" y="0.0" width="218" height="23.666666666666668"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                                <color key="textColor" name="Foreground"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To add a new favourite, click on the star at the top right of the recipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-bp-xF2">
+                                                <rect key="frame" x="10" y="55.666666666666629" width="408" height="47"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                                <color key="textColor" name="Foreground"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="add_favourite_tips" translatesAutoresizingMaskIntoConstraints="NO" id="1zC-Ft-3mi">
+                                                <rect key="frame" x="0.0" y="134.66666666666669" width="428" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="GrH-hN-Pz6"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="3Sd-bp-xF2" firstAttribute="leading" secondItem="b9R-AX-Q7P" secondAttribute="leading" constant="10" id="4OH-8h-PWP"/>
+                                            <constraint firstItem="1zC-Ft-3mi" firstAttribute="leading" secondItem="b9R-AX-Q7P" secondAttribute="leading" id="SNk-Xe-mMh"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Sd-bp-xF2" secondAttribute="trailing" constant="10" id="Zq0-ts-aRS"/>
+                                            <constraint firstAttribute="trailing" secondItem="1zC-Ft-3mi" secondAttribute="trailing" id="vHH-Bv-YHG"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="Background"/>
+                                <constraints>
+                                    <constraint firstItem="b9R-AX-Q7P" firstAttribute="centerY" secondItem="lus-k4-h9S" secondAttribute="centerY" id="5ro-c0-d8M"/>
+                                    <constraint firstItem="b9R-AX-Q7P" firstAttribute="leading" secondItem="lus-k4-h9S" secondAttribute="leading" id="HNY-ko-6Rp"/>
+                                    <constraint firstAttribute="trailing" secondItem="b9R-AX-Q7P" secondAttribute="trailing" id="qFL-xM-2pD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cbS-Sf-Xn3"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="gok-lz-KEd" firstAttribute="leading" secondItem="cbS-Sf-Xn3" secondAttribute="leading" id="2S8-xv-aPH"/>
+                            <constraint firstItem="lus-k4-h9S" firstAttribute="top" secondItem="cbS-Sf-Xn3" secondAttribute="top" id="3NN-gv-kKF"/>
+                            <constraint firstItem="lus-k4-h9S" firstAttribute="leading" secondItem="cbS-Sf-Xn3" secondAttribute="leading" id="9KZ-mt-IVF"/>
+                            <constraint firstItem="cbS-Sf-Xn3" firstAttribute="bottom" secondItem="lus-k4-h9S" secondAttribute="bottom" id="JU1-cn-IqL"/>
                             <constraint firstItem="gok-lz-KEd" firstAttribute="trailing" secondItem="cbS-Sf-Xn3" secondAttribute="trailing" id="LAC-cL-bJ1"/>
+                            <constraint firstItem="cbS-Sf-Xn3" firstAttribute="trailing" secondItem="lus-k4-h9S" secondAttribute="trailing" id="UFf-Hw-2FT"/>
                             <constraint firstItem="gok-lz-KEd" firstAttribute="bottom" secondItem="cbS-Sf-Xn3" secondAttribute="bottom" id="dpj-Nb-vrr"/>
                             <constraint firstItem="gok-lz-KEd" firstAttribute="top" secondItem="cbS-Sf-Xn3" secondAttribute="top" id="sdy-Ig-sZL"/>
                         </constraints>
@@ -126,12 +170,13 @@
                     <navigationItem key="navigationItem" title="Reciplease" id="0zR-8I-Y1s"/>
                     <connections>
                         <outlet property="favouriteRecipeTableView" destination="gok-lz-KEd" id="fea-4d-naC"/>
+                        <outlet property="noFavouriteView" destination="lus-k4-h9S" id="fxX-5F-hdD"/>
                         <segue destination="Lz9-mn-7IG" kind="show" identifier="segueFromFavouriteToDetail" id="GR8-9a-lAi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ee-fZ-F4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2086" y="283"/>
+            <point key="canvasLocation" x="2085.9813084112147" y="282.50539956803459"/>
         </scene>
         <!--Favourite-->
         <scene sceneID="me5-Ja-Kki">
@@ -653,6 +698,7 @@
         <segue reference="GR8-9a-lAi"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="add_favourite_tips" width="140" height="12.666666984558105"/>
         <image name="search" width="24" height="24"/>
         <image name="star_fill" width="25.666666030883789" height="25.666666030883789"/>
         <namedColor name="Background">
