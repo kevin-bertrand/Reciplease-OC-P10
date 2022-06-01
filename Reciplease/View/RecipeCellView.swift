@@ -15,8 +15,11 @@ class RecipeCellView: UITableViewCell {
     }
     
     // MARK: Method
-    func configure(withRecipe recipe: Recipe) {
-        plateImageView.dowloadFrom(recipe.image)
+    func configure(withRecipe recipe: RecipeInformations) {
+        if let url = recipe.image {
+            plateImageView.dowloadFrom(url)
+        }
+        
         plateTitleLabel.text = recipe.label
         yieldLabel.text = "\(recipe.yield) 👍"
         timeLabel.text = "\(recipe.totalTime.formatToStringTime)  🕓"

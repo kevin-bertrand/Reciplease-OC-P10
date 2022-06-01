@@ -63,7 +63,7 @@ class IngredientListController: UIViewController {
     private var _ingredients: [String] = []
     private let _segueToRecipeList = "segueToRecipeList"
     private let _recipeManager = RecipeManager()
-    private var _recipes: [Recipe] = []
+    private var _recipes: [RecipeInformations] = []
     
     // MARK: Methods
     private func showAlert() {

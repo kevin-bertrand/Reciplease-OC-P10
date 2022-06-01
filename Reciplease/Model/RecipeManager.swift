@@ -13,7 +13,7 @@ class RecipeManager {
     // MARK: Properties
     
     // MARK: Methods
-    func getRecipes(forIngredients ingredients: [String], completionHandler: @escaping (([Recipe]?) -> Void)) {
+    func getRecipes(forIngredients ingredients: [String], completionHandler: @escaping (([RecipeInformations]?) -> Void)) {
         guard let url = createRequest(withIngredients: ingredients) else {
             completionHandler(nil)
             return
@@ -24,6 +24,10 @@ class RecipeManager {
             guard let hits = response.value else {return}
             completionHandler(hits.hits.map{$0.recipe})
         }
+    }
+    
+    func getFavourites() -> [RecipeInformations] {
+        return _downloadFavouriteRecipes().sorted(by: {$0.label < $1.label })
     }
     
     // MARK: Private
@@ -44,5 +48,9 @@ class RecipeManager {
         }
         
         return components.url
+    }
+    
+    private func _downloadFavouriteRecipes() -> [RecipeInformations] {
+        return []
     }
 }

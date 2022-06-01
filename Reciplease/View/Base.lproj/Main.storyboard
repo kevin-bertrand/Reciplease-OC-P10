@@ -13,7 +13,7 @@
         <!--Reciplease-->
         <scene sceneID="xOx-R1-RHI">
             <objects>
-                <viewController id="Ng8-VD-yte" sceneMemberID="viewController">
+                <viewController id="Ng8-VD-yte" customClass="FavouriteListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ss5-GH-aB1">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,14 +22,14 @@
                                 <rect key="frame" x="0.0" y="88" width="428" height="755"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" rowHeight="168" id="gL1-j7-3bt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" rowHeight="168" id="gL1-j7-3bt" customClass="RecipeCellView" customModule="Reciplease" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gL1-j7-3bt" id="rBJ-J2-A3U">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="168"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wcO-e1-CV0">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wcO-e1-CV0">
                                                     <rect key="frame" x="0.0" y="0.0" width="428" height="168"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="170" id="M6f-uG-Rtz"/>
@@ -107,6 +107,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="wcO-e1-CV0" secondAttribute="trailing" id="xZX-aH-yne"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ingredientsLabel" destination="crb-IQ-17g" id="UkY-m2-FQM"/>
+                                            <outlet property="plateImageView" destination="wcO-e1-CV0" id="P4f-d5-x3B"/>
+                                            <outlet property="plateTitleLabel" destination="Kvp-4S-8ec" id="8pP-Pa-Man"/>
+                                            <outlet property="timeLabel" destination="xto-6K-Sg4" id="0SR-To-kbL"/>
+                                            <outlet property="yieldLabel" destination="hd3-Nx-LZF" id="g65-Oj-BNu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -122,10 +129,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorite" id="j1b-LB-e3E"/>
                     <navigationItem key="navigationItem" title="Reciplease" id="0zR-8I-Y1s"/>
+                    <connections>
+                        <outlet property="favouriteRecipeTableView" destination="gok-lz-KEd" id="fea-4d-naC"/>
+                        <segue destination="Lz9-mn-7IG" kind="show" identifier="segueFromFavouriteToDetail" id="GR8-9a-lAi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ee-fZ-F4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313.5514018691588" y="282.50539956803459"/>
+            <point key="canvasLocation" x="2086" y="283"/>
         </scene>
         <!--Favorite-->
         <scene sceneID="me5-Ja-Kki">
@@ -553,8 +564,16 @@
                             <constraint firstItem="9fc-J3-SxW" firstAttribute="leading" secondItem="inc-2O-Inv" secondAttribute="leading" id="xFW-1W-CIo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Reciplease" id="CAK-JA-98U"/>
+                    <navigationItem key="navigationItem" title="Reciplease" id="CAK-JA-98U">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="star_fill" id="QcC-8H-e1r">
+                            <color key="tintColor" name="ClearButtonBackground"/>
+                            <connections>
+                                <action selector="toggleFavouriteButtonTouched:" destination="Lz9-mn-7IG" id="fub-4q-blp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="favouriteButton" destination="QcC-8H-e1r" id="alp-A2-fQX"/>
                         <outlet property="ingredientsTextView" destination="v95-6n-9Wh" id="PJp-Gw-OuZ"/>
                         <outlet property="plateImage" destination="9fc-J3-SxW" id="zOJ-24-r29"/>
                         <outlet property="plateNameLabel" destination="z3E-UI-yeh" id="yhd-Dl-jqp"/>
@@ -585,7 +604,11 @@
             <point key="canvasLocation" x="-376" y="-73"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GR8-9a-lAi"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="star_fill" width="16" height="16"/>
         <namedColor name="Background">
             <color red="0.21299999952316284" green="0.20100000500679016" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -14,7 +14,7 @@ class RecipeListController: UIViewController {
     @IBOutlet weak var recipeTableView: UITableView!
     
     // MARK: Properties
-    var recipeList: [Recipe] = []
+    var recipeList: [RecipeInformations] = []
     
     // MARK: View life cycle
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class RecipeListController: UIViewController {
     // MARK: Private
     // MARK: Properties
     private let _segueToDetails = "segueToDetails"
-    private var _selectedRecipe: Recipe?
+    private var _selectedRecipe: RecipeInformations?
 }
 
 
