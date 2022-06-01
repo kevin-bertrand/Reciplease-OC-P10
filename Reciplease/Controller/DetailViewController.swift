@@ -62,7 +62,24 @@ class DetailViewController: UIViewController {
         for ingredient in recipe.ingredientLines {
             ingredientsTextView.text.append("- \(ingredient)\n")
         }
+        _checkIfRecipeAlreadyFavourite()
         _updateFavouriteButtonColor()
+    }
+    
+    private func _checkIfRecipeAlreadyFavourite() {
+        if favouriteRecipe == nil {
+            do {
+                let favouritesRecipes = try CoreDataStack.sharedInstance.viewContext.fetch(FavouriteRecipes.fetchRequest())
+                favouritesRecipes.forEach { favourite in
+                    if favourite.label == recipe?.label {
+                        recipe!.favourite = true
+                        favouriteRecipe = favourite
+                    }
+                }
+            } catch {
+                print("Error")
+            }
+        }
     }
     
     /// Update favourite button tint color
