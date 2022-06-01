@@ -46,13 +46,12 @@ class IngredientListController: UIViewController {
         loadingView.isHidden = false
         
         // Download recipes
-        _recipeManager.getRecipes(forIngredients: _ingredients) { [weak self] data in
+        _recipeManager.getRecipes(forIngredients: _ingredients) { [weak self] isSuccess in
             guard let self = self else { return }
             self.loadingView.isHidden = true
             self._ingredients = []
             self.ingredientTableView.reloadData()
-            if let data = data {
-                self._recipes = data
+            if isSuccess {
                 self.performSegue(withIdentifier: self._segueToRecipeList, sender: self)
             } else {
                 AlertManager.shared.sendAlert(.cannotDownloadRecipe, on: self)
@@ -64,7 +63,7 @@ class IngredientListController: UIViewController {
     /// Prepare the segue to pass data to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == _segueToRecipeList, let recipeListVC = segue.destination as? RecipeListController else { return }
-        recipeListVC.recipeList = _recipes
+        recipeListVC.recipeManager = _recipeManager
     }
     
     // MARK: Private
@@ -72,7 +71,6 @@ class IngredientListController: UIViewController {
     private var _ingredients: [String] = []
     private let _segueToRecipeList = "segueToRecipeList"
     private let _recipeManager = RecipeManager()
-    private var _recipes: [RecipeInformations] = []
 }
 
 // MARK: Delegate extension

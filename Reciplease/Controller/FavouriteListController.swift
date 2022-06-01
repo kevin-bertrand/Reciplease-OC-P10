@@ -15,9 +15,6 @@ class FavouriteListController: UIViewController {
     @IBOutlet weak var favouriteRecipeTableView: UITableView!
     @IBOutlet weak var noFavouriteView: UIView!
     
-    // MARK: Properties
-    
-    
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,34 +30,26 @@ class FavouriteListController: UIViewController {
     // MARK: Methods
     /// Prepare the segue to pass data to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == _segueToDetails, let detailViewVC = segue.destination as? DetailViewController, let selectedRecipe = _selectedRecipe else { return }
-        detailViewVC.recipe = RecipeInformations(label: selectedRecipe.label ?? "",
-                                                 url: URL(string: selectedRecipe.url ?? ""),
-                                                 image: URL(string: selectedRecipe.image ?? ""),
-                                                 yield: Int(selectedRecipe.yield),
-                                                 ingredientLines: selectedRecipe.ingredientLines ?? [],
-                                                 ingredients: selectedRecipe.ingredients?.compactMap({ ingredient in Ingredients(food: ingredient)}) ?? [],
-                                                 totalTime: Int(selectedRecipe.totalTime),
-                                                 favourite: true)
-        detailViewVC.favouriteRecipe = selectedRecipe
+        guard segue.identifier == _segueToDetails, let detailViewVC = segue.destination as? DetailViewController else { return }
+        detailViewVC.recipeManager = _recipeManager
     }
     
     /// Get selected cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        _selectedRecipe = _favouriteRecipesList[indexPath.row]
+        _recipeManager.selectedRecipe = _recipeList[indexPath.row]
+        print(_recipeList[indexPath.row])
         performSegue(withIdentifier: _segueToDetails, sender: self)
     }
     
     // MARK: Private
     // MARK: Properties
     private let _segueToDetails = "segueFromFavouriteToDetail"
-    private var _selectedRecipe: FavouriteRecipes?
     private let _recipeManager = RecipeManager()
-    private var _favouriteRecipesList: [FavouriteRecipes] = []
-    private var _recipeList: [RecipeInformations] {
+    private var _selectedRecipe: FavouriteRecipes?
+    private var _recipeList: [Recipe] {
         get{
-            _favouriteRecipesList.map {
-                RecipeInformations(label: $0.label ?? "",
+            _recipeManager.favouriteRecipes.map {
+                Recipe(label: $0.label ?? "",
                                    url: URL(string: $0.url ?? ""),
                                    image: URL(string: $0.image ?? ""),
                                    yield: Int($0.yield),
@@ -75,17 +64,9 @@ class FavouriteListController: UIViewController {
     // MARK: Method
     /// Get recipes from CoreData
     private func _downloadRecipes() {
-        let request: NSFetchRequest<FavouriteRecipes> = FavouriteRecipes.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \FavouriteRecipes.label, ascending: true)]
+        _recipeManager.downloadFavouriteRecipes()
         
-        do {
-            _favouriteRecipesList = try CoreDataStack.sharedInstance.viewContext.fetch(request)
-            favouriteRecipeTableView.reloadData()
-        } catch {
-            print("error during download")
-        }
-        
-        if _favouriteRecipesList.count == 0 {
+        if _recipeManager.favouriteRecipes.count == 0 {
             noFavouriteView.isHidden = false
         } else {
             noFavouriteView.isHidden = true
