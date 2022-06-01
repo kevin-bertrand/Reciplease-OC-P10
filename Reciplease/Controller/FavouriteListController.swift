@@ -20,30 +20,52 @@ class FavouriteListController: UIViewController {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        _downloadRecipes()
         _delegateSetup()
         _dataSourceSetup()
+        _downloadRecipes()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        _downloadRecipes()
     }
     
     // MARK: Methods
     /// Prepare the segue to pass data to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == _segueToDetails, let detailViewVC = segue.destination as? DetailViewController else { return }
-        detailViewVC.recipe = _selectedRecipe
+        guard segue.identifier == _segueToDetails, let detailViewVC = segue.destination as? DetailViewController, let selectedRecipe = _selectedRecipe else { return }
+        detailViewVC.recipe = RecipeInformations(label: selectedRecipe.label ?? "",
+                                                 image: URL(string: selectedRecipe.image ?? ""),
+                                                 yield: Int(selectedRecipe.yield),
+                                                 ingredientLines: selectedRecipe.ingredientLines ?? [],
+                                                 totalTime: Int(selectedRecipe.totalTime),
+                                                 favourite: true)
+        detailViewVC.favouriteRecipe = selectedRecipe
     }
     
     /// Get selected cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        _selectedRecipe = _recipeList[indexPath.row]
+        _selectedRecipe = _favouriteRecipesList[indexPath.row]
         performSegue(withIdentifier: _segueToDetails, sender: self)
     }
     
     // MARK: Private
     // MARK: Properties
     private let _segueToDetails = "segueFromFavouriteToDetail"
-    private var _selectedRecipe: RecipeInformations?
+    private var _selectedRecipe: FavouriteRecipes?
     private let _recipeManager = RecipeManager()
-    private var _recipeList: [RecipeInformations] = []
+    private var _favouriteRecipesList: [FavouriteRecipes] = []
+    private var _recipeList: [RecipeInformations] {
+        get{
+            _favouriteRecipesList.map {
+                RecipeInformations(label: $0.label ?? "",
+                                   image: URL(string: $0.image ?? ""),
+                                   yield: Int($0.yield),
+                                   ingredientLines: $0.ingredientLines ?? [],
+                                   totalTime: Int($0.totalTime),
+                                   favourite: true)
+            }
+        }
+    }
     
     // MARK: Method
     /// Get recipes from CoreData
@@ -52,17 +74,8 @@ class FavouriteListController: UIViewController {
         request.sortDescriptors = [NSSortDescriptor(keyPath: \FavouriteRecipes.label, ascending: true)]
         
         do {
-            let recipes = try CoreDataStack.sharedInstance.viewContext.fetch(request)
-            
-            for recipe in recipes {
-                _recipeList.append(RecipeInformations(label: recipe.label ?? "",
-                                                      image: URL(string: recipe.image ?? ""),
-                                                      yield: Int(recipe.yield),
-                                                      ingredientLines: recipe.ingredientLines ?? [],
-                                                      totalTime: Int(recipe.totalTime),
-                                                      favourite: true))
-            }
-            
+            _favouriteRecipesList = try CoreDataStack.sharedInstance.viewContext.fetch(request)
+            favouriteRecipeTableView.reloadData()
         } catch {
             print("error during download")
         }

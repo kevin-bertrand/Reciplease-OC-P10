@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     
     // MARK: Properties
     var recipe: RecipeInformations?
+    var favouriteRecipe: FavouriteRecipes?
     
     // MARK: Outlets
     // MARK: View life cycle
@@ -50,6 +51,8 @@ class DetailViewController: UIViewController {
         guard let recipe = recipe else { return }
         if let url = recipe.image {
             plateImage.dowloadFrom(url)
+        } else {
+            plateImage.image = UIImage(named: "default_recipe_background")
         }
         plateNameLabel.text = recipe.label
         yieldLabel.text = "\(recipe.yield) 👍"
@@ -72,26 +75,42 @@ class DetailViewController: UIViewController {
     }
     
     private func _updateDatabase() {
-        if let recipe = recipe,
-           let favouvite = recipe.favourite,
+        if let favouvite = recipe?.favourite,
            favouvite {
-            let recipeToSave = FavouriteRecipes(context: CoreDataStack.sharedInstance.viewContext)
-            recipeToSave.label = recipe.label
-            if let url = recipe.image {
-                recipeToSave.image = url.absoluteString
-            }
-            recipeToSave.ingredientLines = recipe.ingredientLines
-            recipeToSave.totalTime = Int32(recipe.totalTime)
-            recipeToSave.yield = Int16(recipe.yield)
-            recipeToSave.isFavourite = true
-            
-            do {
-                try CoreDataStack.sharedInstance.viewContext.save()
-            } catch {
-                print("We were unable to save \(recipeToSave)")
-            }
+            _saveRecordOnDatabase()
         } else {
-            
+            _deleteRecordOnDatabase()
         }
+    }
+    
+    private func _saveRecordOnDatabase() {
+        guard let recipe = recipe else { return }
+        let recipeToSave = FavouriteRecipes(context: CoreDataStack.sharedInstance.viewContext)
+        recipeToSave.label = recipe.label
+        if let url = recipe.image {
+            recipeToSave.image = url.absoluteString
+        }
+        recipeToSave.ingredientLines = recipe.ingredientLines
+        recipeToSave.totalTime = Int32(recipe.totalTime)
+        recipeToSave.yield = Int16(recipe.yield)
+        recipeToSave.isFavourite = true
+        
+        do {
+            try CoreDataStack.sharedInstance.viewContext.save()
+        } catch {
+            print("We were unable to save \(recipeToSave)")
+        }
+        favouriteRecipe = recipeToSave
+    }
+    
+    private func _deleteRecordOnDatabase() {
+        guard let favouriteRecipe = favouriteRecipe else { return }
+        CoreDataStack.sharedInstance.viewContext.delete(favouriteRecipe)
+        do {
+            try CoreDataStack.sharedInstance.viewContext.save()
+        } catch {
+            print("We were unavle to delete \(favouriteRecipe)")
+        }
+        self.favouriteRecipe = nil
     }
 }
