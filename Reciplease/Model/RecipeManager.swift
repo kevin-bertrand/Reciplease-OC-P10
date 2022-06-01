@@ -14,9 +14,18 @@ class RecipeManager {
     // MARK: Properties
     //    var selectedFavouriteRecipe: FavouriteRecipes?
     var selectedRecipe: Recipe?
-    var favouriteRecipes: [FavouriteRecipes] { _favouriteRecipes }
+    var favouriteRecipes: [Recipe] { _favouriteRecipes.map {
+        Recipe(label: $0.label ?? "",
+                           url: URL(string: $0.url ?? ""),
+                           image: URL(string: $0.image ?? ""),
+                           yield: Int($0.yield),
+                           ingredientLines: $0.ingredientLines ?? [],
+                           ingredients: $0.ingredients?.compactMap({ ingredient in Ingredients(food: ingredient)}) ?? [],
+                           totalTime: Int($0.totalTime),
+                           favourite: true)
+    }}
     var downloadedRecipes: [Recipe] { _downloadedRecipes }
-    var isFavourite: Bool {
+    var recipeIsFavourite: Bool {
         if let favourite = selectedRecipe?.favourite, favourite {
             return true
         } else {
@@ -61,6 +70,7 @@ class RecipeManager {
         }
     }
     
+    /// Check if the selected record is in the favourite list
     func checkIfRecipeIsAlreadyInDatabase() {
         downloadFavouriteRecipes()
         
@@ -69,6 +79,7 @@ class RecipeManager {
         }
     }
     
+    /// Save the record on the database
     func saveRecordOnDatabase() -> AlertManager.AlertReson? {
         guard let recipe = selectedRecipe else { return nil }
         let recipeToSave = FavouriteRecipes(context: CoreDataStack.sharedInstance.viewContext)
@@ -91,8 +102,9 @@ class RecipeManager {
         return nil
     }
     
+    /// Delete the record from the database
     func deleteRecordOnDatabase() -> AlertManager.AlertReson? {
-        guard isFavourite, let favouriteRecipe = _getFavouriteRecord() else { return nil }
+        guard recipeIsFavourite, let favouriteRecipe = _getFavouriteRecord() else { return nil }
         CoreDataStack.sharedInstance.viewContext.delete(favouriteRecipe)
         do {
             try CoreDataStack.sharedInstance.viewContext.save()
@@ -130,6 +142,7 @@ class RecipeManager {
         return components.url
     }
     
+    /// Get the favourite record of the selected recipe if it exits
     private func _getFavouriteRecord() -> FavouriteRecipes? {
         return _favouriteRecipes.first(where: {$0.label == selectedRecipe!.label})
     }

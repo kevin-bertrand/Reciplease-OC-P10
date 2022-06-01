@@ -32,11 +32,6 @@ class DetailViewController: UIViewController {
     // MARK: Action
     @IBAction func toggleFavouriteButtonTouched(_ sender: Any) {
         guard let _ = recipeManager.selectedRecipe else { return }
-        
-        if recipeManager.selectedRecipe!.favourite == nil {
-            recipeManager.selectedRecipe!.favourite = false
-        }
-        
         _updateDatabase()
         recipeManager.selectedRecipe!.favourite!.toggle()
         _updateFavouriteButtonColor()
@@ -76,15 +71,16 @@ class DetailViewController: UIViewController {
     
     /// Update favourite button tint color
     private func _updateFavouriteButtonColor() {
-        if recipeManager.isFavourite {
+        if recipeManager.recipeIsFavourite {
             favouriteButton.tintColor = UIColor(named: "Button Background")
         } else {
             favouriteButton.tintColor = UIColor(named: "ClearButtonBackground")
         }
     }
     
+    /// Update the database (save or delete the record)
     private func _updateDatabase() {
-        if recipeManager.isFavourite {
+        if recipeManager.recipeIsFavourite {
             if let error = recipeManager.deleteRecordOnDatabase() {
                 AlertManager.shared.sendAlert(error, on: self)
             }

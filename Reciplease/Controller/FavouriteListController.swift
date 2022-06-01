@@ -18,9 +18,9 @@ class FavouriteListController: UIViewController {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        _downloadRecipes()
         _delegateSetup()
         _dataSourceSetup()
-        _downloadRecipes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,8 +36,7 @@ class FavouriteListController: UIViewController {
     
     /// Get selected cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        _recipeManager.selectedRecipe = _recipeList[indexPath.row]
-        print(_recipeList[indexPath.row])
+        _recipeManager.selectedRecipe = _recipeManager.favouriteRecipes[indexPath.row]
         performSegue(withIdentifier: _segueToDetails, sender: self)
     }
     
@@ -45,21 +44,6 @@ class FavouriteListController: UIViewController {
     // MARK: Properties
     private let _segueToDetails = "segueFromFavouriteToDetail"
     private let _recipeManager = RecipeManager()
-    private var _selectedRecipe: FavouriteRecipes?
-    private var _recipeList: [Recipe] {
-        get{
-            _recipeManager.favouriteRecipes.map {
-                Recipe(label: $0.label ?? "",
-                                   url: URL(string: $0.url ?? ""),
-                                   image: URL(string: $0.image ?? ""),
-                                   yield: Int($0.yield),
-                                   ingredientLines: $0.ingredientLines ?? [],
-                                   ingredients: $0.ingredients?.compactMap({ ingredient in Ingredients(food: ingredient)}) ?? [],
-                                   totalTime: Int($0.totalTime),
-                                   favourite: true)
-            }
-        }
-    }
     
     // MARK: Method
     /// Get recipes from CoreData
@@ -71,6 +55,7 @@ class FavouriteListController: UIViewController {
         } else {
             noFavouriteView.isHidden = true
         }
+        favouriteRecipeTableView.reloadData()
     }
 }
 
@@ -88,7 +73,7 @@ extension FavouriteListController: UITableViewDataSource {
     // MARK: Public method
     /// Set the number of row of the table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        _recipeList.count
+        _recipeManager.favouriteRecipes.count
     }
     
     /// Configure each cells of the table view
@@ -98,7 +83,7 @@ extension FavouriteListController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        recipeCell.configure(withRecipe: _recipeList[indexPath.row])
+        recipeCell.configure(withRecipe: _recipeManager.favouriteRecipes[indexPath.row])
         
         return recipeCell
     }
