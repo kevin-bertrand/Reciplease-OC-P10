@@ -20,6 +20,11 @@ struct RecipeInformations: Codable {
     let image: URL?
     let yield: Int
     let ingredientLines: [String]
+    let ingredients: [Ingredients]
     let totalTime: Int
     var favourite: Bool?
+}
+
+struct Ingredients: Codable {
+    let food: String
 }

@@ -37,6 +37,7 @@ class FavouriteListController: UIViewController {
                                                  image: URL(string: selectedRecipe.image ?? ""),
                                                  yield: Int(selectedRecipe.yield),
                                                  ingredientLines: selectedRecipe.ingredientLines ?? [],
+                                                 ingredients: selectedRecipe.ingredients?.compactMap({ ingredient in Ingredients(food: ingredient)}) ?? [],
                                                  totalTime: Int(selectedRecipe.totalTime),
                                                  favourite: true)
         detailViewVC.favouriteRecipe = selectedRecipe
@@ -61,6 +62,7 @@ class FavouriteListController: UIViewController {
                                    image: URL(string: $0.image ?? ""),
                                    yield: Int($0.yield),
                                    ingredientLines: $0.ingredientLines ?? [],
+                                   ingredients: $0.ingredients?.compactMap({ ingredient in Ingredients(food: ingredient)}) ?? [],
                                    totalTime: Int($0.totalTime),
                                    favourite: true)
             }

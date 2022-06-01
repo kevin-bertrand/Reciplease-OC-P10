@@ -110,6 +110,7 @@ class DetailViewController: UIViewController {
         recipeToSave.ingredientLines = recipe.ingredientLines
         recipeToSave.totalTime = Int32(recipe.totalTime)
         recipeToSave.yield = Int16(recipe.yield)
+        recipeToSave.ingredients = recipe.ingredients.compactMap {$0.food}
         recipeToSave.isFavourite = true
         
         do {

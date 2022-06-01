@@ -19,7 +19,7 @@ class RecipeCellView: UITableViewCell {
         if let url = recipe.image {
             plateImageView.dowloadFrom(url)
         }
-        
+        ingredientsLabel.text = recipe.ingredients.compactMap({$0.food}).joined(separator: ", ")
         plateTitleLabel.text = recipe.label
         yieldLabel.text = "\(recipe.yield) 👍"
         timeLabel.text = "\(recipe.totalTime.formatToStringTime)  🕓"
