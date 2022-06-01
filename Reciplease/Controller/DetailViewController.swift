@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var yieldLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var favouriteButton: UIBarButtonItem!
+    @IBOutlet weak var getDirectionButton: UIButton!
     
     // MARK: Properties
     var recipe: RecipeInformations?
@@ -42,6 +43,12 @@ class DetailViewController: UIViewController {
         _updateDatabase()
     }
     
+    @IBAction func getDirectionButtonTouched(_ sender: Any) {
+        if let url = recipe?.url {
+            UIApplication.shared.open(url)
+        }
+    }
+    
     // MARK: Private
     // MARK: Properties
     
@@ -61,6 +68,11 @@ class DetailViewController: UIViewController {
         for ingredient in recipe.ingredientLines {
             ingredientsTextView.text.append("- \(ingredient)\n")
         }
+        
+        if recipe.url == nil {
+            getDirectionButton.isEnabled = false
+        }
+        
         _checkIfRecipeAlreadyFavourite()
         _updateFavouriteButtonColor()
     }
@@ -111,6 +123,7 @@ class DetailViewController: UIViewController {
         recipeToSave.yield = Int16(recipe.yield)
         recipeToSave.ingredients = recipe.ingredients.compactMap {$0.food}
         recipeToSave.isFavourite = true
+        recipeToSave.url = recipe.url?.absoluteString
         
         do {
             try CoreDataStack.sharedInstance.viewContext.save()

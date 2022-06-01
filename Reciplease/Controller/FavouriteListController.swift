@@ -34,6 +34,7 @@ class FavouriteListController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == _segueToDetails, let detailViewVC = segue.destination as? DetailViewController, let selectedRecipe = _selectedRecipe else { return }
         detailViewVC.recipe = RecipeInformations(label: selectedRecipe.label ?? "",
+                                                 url: URL(string: selectedRecipe.url ?? ""),
                                                  image: URL(string: selectedRecipe.image ?? ""),
                                                  yield: Int(selectedRecipe.yield),
                                                  ingredientLines: selectedRecipe.ingredientLines ?? [],
@@ -59,6 +60,7 @@ class FavouriteListController: UIViewController {
         get{
             _favouriteRecipesList.map {
                 RecipeInformations(label: $0.label ?? "",
+                                   url: URL(string: $0.url ?? ""),
                                    image: URL(string: $0.image ?? ""),
                                    yield: Int($0.yield),
                                    ingredientLines: $0.ingredientLines ?? [],

@@ -17,6 +17,7 @@ struct Hit: Codable {
 
 struct RecipeInformations: Codable {
     let label: String
+    let url: URL?
     let image: URL?
     let yield: Int
     let ingredientLines: [String]

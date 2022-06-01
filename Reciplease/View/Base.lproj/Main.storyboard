@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7lO-Ws-hNF">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -201,6 +200,8 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lemon, Cheese, Sausages..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X7A-xh-cme">
                                                 <rect key="frame" x="0.0" y="0.0" width="309.33333333333331" height="34"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -221,7 +222,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="wSh-4D-byN" secondAttribute="bottom" constant="15" id="AaS-AZ-bIT"/>
                                     <constraint firstItem="wSh-4D-byN" firstAttribute="leading" secondItem="jtq-nq-3Hl" secondAttribute="leading" constant="8" id="LG7-Rk-27O"/>
@@ -305,7 +306,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="byM-ev-fkQ">
                                         <rect key="frame" x="43" y="340" width="342.33333333333331" height="75"/>
                                         <subviews>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SmO-Ox-0J9">
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SmO-Ox-0J9">
                                                 <rect key="frame" x="152.66666666666666" y="0.0" width="37" height="29.666666666666668"/>
                                                 <color key="color" name="Foreground"/>
                                             </activityIndicatorView>
@@ -552,6 +553,9 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
                                     <color key="baseForegroundColor" name="Foreground"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="getDirectionButtonTouched:" destination="Lz9-mn-7IG" eventType="touchUpInside" id="UWk-mO-GiK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqn-DL-GXB">
                                 <rect key="frame" x="8" y="396" width="412" height="30.333333333333314"/>
@@ -614,6 +618,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="favouriteButton" destination="QcC-8H-e1r" id="alp-A2-fQX"/>
+                        <outlet property="getDirectionButton" destination="99C-jO-m6b" id="8Qb-rm-0qt"/>
                         <outlet property="ingredientsTextView" destination="v95-6n-9Wh" id="PJp-Gw-OuZ"/>
                         <outlet property="plateImage" destination="9fc-J3-SxW" id="zOJ-24-r29"/>
                         <outlet property="plateNameLabel" destination="z3E-UI-yeh" id="yhd-Dl-jqp"/>
@@ -662,8 +667,5 @@
         <namedColor name="Foreground">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

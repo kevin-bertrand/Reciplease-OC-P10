@@ -7,9 +7,10 @@
         <attribute name="isFavourite" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="label" attributeType="String"/>
         <attribute name="totalTime" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="url" attributeType="String"/>
         <attribute name="yield" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="FavouriteRecipes" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="FavouriteRecipes" positionX="-63" positionY="-18" width="128" height="149"/>
     </elements>
 </model>
