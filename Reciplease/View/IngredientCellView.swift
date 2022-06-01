@@ -15,8 +15,9 @@ class IngredientCellView: UITableViewCell {
     }
     
     // MARK: Methods
+    /// Configure the table view cell
     func configure(withIngredient ingredient: String) {
-        _ingredientLabel.text = "- \(ingredient.localizedUppercase.trimmingCharacters(in: .whitespacesAndNewlines))"
+        _ingredientLabel.text = "- \(ingredient.trimmingCharacters(in: .whitespacesAndNewlines).capitalizingFirstLetter())"
     }
     
     // MARK: Private

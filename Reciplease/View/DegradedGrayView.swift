@@ -8,16 +8,21 @@
 import UIKit
 
 class DegradedGrayView: UIView {
-    private var _firstLoad = false
-    
+    // MARK: Public
+    // MARK: View life cycle
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         if !_firstLoad {
             _addGradientBackground()
         }
-        
     }
     
+    // MARK: Private
+    // MARK: Properties
+    private var _firstLoad = false
+    
+    // MARK: Method
+    /// Adding a linear gradient from top to bottom on a view
     private func _addGradientBackground() {
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds

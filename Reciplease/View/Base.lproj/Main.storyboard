@@ -103,11 +103,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ingredientsLabel" destination="crb-IQ-17g" id="UkY-m2-FQM"/>
-                                            <outlet property="plateImageView" destination="wcO-e1-CV0" id="P4f-d5-x3B"/>
-                                            <outlet property="plateTitleLabel" destination="Kvp-4S-8ec" id="8pP-Pa-Man"/>
-                                            <outlet property="timeLabel" destination="xto-6K-Sg4" id="0SR-To-kbL"/>
-                                            <outlet property="yieldLabel" destination="hd3-Nx-LZF" id="g65-Oj-BNu"/>
+                                            <outlet property="_ingredientsLabel" destination="crb-IQ-17g" id="UkY-m2-FQM"/>
+                                            <outlet property="_plateImageView" destination="wcO-e1-CV0" id="P4f-d5-x3B"/>
+                                            <outlet property="_plateTitleLabel" destination="Kvp-4S-8ec" id="8pP-Pa-Man"/>
+                                            <outlet property="_timeLabel" destination="xto-6K-Sg4" id="0SR-To-kbL"/>
+                                            <outlet property="_yieldLabel" destination="hd3-Nx-LZF" id="g65-Oj-BNu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -502,11 +502,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ingredientsLabel" destination="utl-fi-BcK" id="vfe-z1-cvu"/>
-                                            <outlet property="plateImageView" destination="bqb-Kd-r3k" id="zqB-OV-Oq3"/>
-                                            <outlet property="plateTitleLabel" destination="dvZ-cI-iPH" id="et3-qV-Lyy"/>
-                                            <outlet property="timeLabel" destination="GHU-9t-J4d" id="blA-Zf-5E8"/>
-                                            <outlet property="yieldLabel" destination="fFg-2G-iNx" id="BZa-F5-t29"/>
+                                            <outlet property="_ingredientsLabel" destination="utl-fi-BcK" id="vfe-z1-cvu"/>
+                                            <outlet property="_plateImageView" destination="bqb-Kd-r3k" id="zqB-OV-Oq3"/>
+                                            <outlet property="_plateTitleLabel" destination="dvZ-cI-iPH" id="et3-qV-Lyy"/>
+                                            <outlet property="_timeLabel" destination="GHU-9t-J4d" id="blA-Zf-5E8"/>
+                                            <outlet property="_yieldLabel" destination="fFg-2G-iNx" id="BZa-F5-t29"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
