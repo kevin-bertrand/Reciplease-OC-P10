@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064983D42847C81C00085D3F /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064983D32847C81C00085D3F /* AlertManager.swift */; };
 		0657593F284666FF006055BB /* FavouriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0657593E284666FF006055BB /* FavouriteListController.swift */; };
 		065759452846748C006055BB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065759442846748C006055BB /* CoreDataStack.swift */; };
 		069623392846791C0046E6E7 /* FavouriteRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069623382846791C0046E6E7 /* FavouriteRecipes.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		064983D32847C81C00085D3F /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertManager.swift; path = ../../../../../../../../../../Downloads/AlertManager.swift; sourceTree = "<group>"; };
 		0657593E284666FF006055BB /* FavouriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListController.swift; sourceTree = "<group>"; };
 		065759442846748C006055BB /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		069623382846791C0046E6E7 /* FavouriteRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRecipes.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				06D05DC1283CE94E009545AE /* RecipeListController.swift */,
 				06D05DCC283D1643009545AE /* DetailViewController.swift */,
 				0657593E284666FF006055BB /* FavouriteListController.swift */,
+				064983D32847C81C00085D3F /* AlertManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */,
 				06D05DCB283D05B4009545AE /* UIImageView.swift in Sources */,
 				06D05DBC283CE1BE009545AE /* RecipeManager.swift in Sources */,
+				064983D42847C81C00085D3F /* AlertManager.swift in Sources */,
 				065759452846748C006055BB /* CoreDataStack.swift in Sources */,
 				06D05DC2283CE94E009545AE /* RecipeListController.swift in Sources */,
 				06D05DC6283CFDB3009545AE /* RecipeCellView.swift in Sources */,

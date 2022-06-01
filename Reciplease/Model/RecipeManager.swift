@@ -18,11 +18,19 @@ class RecipeManager {
             completionHandler(nil)
             return
         }
-        let request = AF.request(url)
+        let request = AF.request(url) { $0.timeoutInterval = 10 }.validate()
         
         request.responseDecodable(of: RecipesHits.self) { response in
-            guard let hits = response.value else {return}
-            completionHandler(hits.hits.map{$0.recipe})
+            switch response.result {
+            case .success:
+                guard let hits = response.value else {
+                    completionHandler(nil)
+                    return
+                }
+                completionHandler(hits.hits.map{$0.recipe})
+            case .failure:
+                completionHandler(nil)
+            }
         }
     }
     

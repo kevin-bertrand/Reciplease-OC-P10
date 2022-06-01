@@ -39,7 +39,7 @@ class IngredientListController: UIViewController {
     @IBAction func searchRecipeButtonTouched() {
         // Check if the list is filled
         guard !_ingredients.isEmpty else {
-            showAlert()
+            AlertManager.shared.sendAlert(.emptyIngredientList, on: self)
             return
         }
         
@@ -54,6 +54,8 @@ class IngredientListController: UIViewController {
             if let data = data {
                 self._recipes = data
                 self.performSegue(withIdentifier: self._segueToRecipeList, sender: self)
+            } else {
+                AlertManager.shared.sendAlert(.cannotDownloadRecipe, on: self)
             }
         }
     }
@@ -71,13 +73,6 @@ class IngredientListController: UIViewController {
     private let _segueToRecipeList = "segueToRecipeList"
     private let _recipeManager = RecipeManager()
     private var _recipes: [RecipeInformations] = []
-    
-    // MARK: Methods
-    private func showAlert() {
-        let alert = UIAlertController(title: "Error", message: "Your ingredient list is empty", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default))
-        present(alert, animated: true)
-    }
 }
 
 // MARK: Delegate extension
