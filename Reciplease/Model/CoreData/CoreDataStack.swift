@@ -8,27 +8,36 @@
 import CoreData
 import Foundation
 
-final class CoreDataStack {
+open class CoreDataStack {
     // MARK: Public
     // MARK: Properties
-    static let sharedInstance = CoreDataStack()
-    var viewContext: NSManagedObjectContext {
-        return CoreDataStack.sharedInstance.persistentContainer.viewContext
-    }
-    
-    // MARK: Private
-    // MARK: Initialization
-    private init() {}
-    
-    // MARK: Properties
-    private let persistentContainerName = "Reciplease"
-    private lazy var persistentContainer: NSPersistentContainer = {
+    public static let persistentContainerName = "Reciplease"
+    public static var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: persistentContainerName)
-        container.loadPersistentStores { storeDescription, error in
+        container.loadPersistentStores { description, error in
             if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo) for: \(storeDescription.description)")
+                fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
         return container
     }()
+    
+    public static var mainContext: NSManagedObjectContext = {
+        return persistentContainer.viewContext
+    }()
+    
+    // MARK: Methods
+    func saveContext() -> Bool{
+        var isSaved = false
+        guard CoreDataStack.mainContext.hasChanges else { return isSaved }
+        do {
+            try CoreDataStack.mainContext.save()
+            isSaved = true
+        } catch let error as NSError {
+            print("Unable to save context! \(error), \(error.userInfo)")
+        }
+        return isSaved
+    }
+    
+    public init() {}
 }

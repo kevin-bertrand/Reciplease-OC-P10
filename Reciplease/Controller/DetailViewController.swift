@@ -65,13 +65,12 @@ class DetailViewController: UIViewController {
             getDirectionButton.isEnabled = false
         }
         
-        recipeManager.checkIfRecipeIsAlreadyInDatabase()
         _updateFavouriteButtonColor()
     }
     
     /// Update favourite button tint color
     private func _updateFavouriteButtonColor() {
-        if recipeManager.recipeIsFavourite {
+        if recipeManager.selectedRecipeIsFavourite {
             favouriteButton.tintColor = UIColor(named: "Button Background")
         } else {
             favouriteButton.tintColor = UIColor(named: "ClearButtonBackground")
@@ -80,7 +79,7 @@ class DetailViewController: UIViewController {
     
     /// Update the database (save or delete the record)
     private func _updateDatabase() {
-        if recipeManager.recipeIsFavourite {
+        if recipeManager.selectedRecipeIsFavourite {
             if let error = recipeManager.deleteRecordOnDatabase() {
                 AlertManager.shared.sendAlert(error, on: self)
             }

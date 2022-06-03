@@ -48,7 +48,7 @@ class FavouriteListController: UIViewController {
     // MARK: Method
     /// Get recipes from CoreData
     private func _downloadRecipes() {
-        _recipeManager.downloadFavouriteRecipes()
+        _recipeManager.reloadFavoriteList()
         
         if _recipeManager.favouriteRecipes.count == 0 {
             noFavouriteView.isHidden = false

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0614F24E2849F66C00911B8E /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614F24D2849F66C00911B8E /* MockCoreDataStack.swift */; };
+		0614F2512849F86200911B8E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614F2502849F86200911B8E /* CoreDataManager.swift */; };
 		064983D42847C81C00085D3F /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064983D32847C81C00085D3F /* AlertManager.swift */; };
 		064983D62848029B00085D3F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064983D52848029B00085D3F /* String.swift */; };
 		0657593F284666FF006055BB /* FavouriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0657593E284666FF006055BB /* FavouriteListController.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0614F24D2849F66C00911B8E /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
+		0614F2502849F86200911B8E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		064983D32847C81C00085D3F /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertManager.swift; path = ../../../../../../../../../../Downloads/AlertManager.swift; sourceTree = "<group>"; };
 		064983D52848029B00085D3F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		0657593E284666FF006055BB /* FavouriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				0696372F2834E2CC0028AC0D /* RecipleaseTests.swift */,
+				0614F24D2849F66C00911B8E /* MockCoreDataStack.swift */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				06575940284673B9006055BB /* CoreData */,
 				06D05DBB283CE1BE009545AE /* RecipeManager.swift */,
 				06D05DC3283CEDED009545AE /* Recipe.swift */,
+				0614F2502849F86200911B8E /* CoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +326,7 @@
 				06D05DC4283CEDED009545AE /* Recipe.swift in Sources */,
 				06D05DB2283CC86E009545AE /* InfoTilesView.swift in Sources */,
 				0696233C284683D30046E6E7 /* Reciplease.xcdatamodeld in Sources */,
+				0614F2512849F86200911B8E /* CoreDataManager.swift in Sources */,
 				0696371B2834E2CA0028AC0D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				069637302834E2CC0028AC0D /* RecipleaseTests.swift in Sources */,
+				0614F24E2849F66C00911B8E /* MockCoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

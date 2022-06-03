@@ -12,20 +12,18 @@ import Foundation
 class RecipeManager {
     // MARK: Public
     // MARK: Properties
-    //    var selectedFavouriteRecipe: FavouriteRecipes?
-    var selectedRecipe: Recipe?
-    var favouriteRecipes: [Recipe] { _favouriteRecipes.map {
-        Recipe(label: $0.label ?? "",
-                           url: URL(string: $0.url ?? ""),
-                           image: URL(string: $0.image ?? ""),
-                           yield: Int($0.yield),
-                           ingredientLines: $0.ingredientLines ?? [],
-                           ingredients: $0.ingredients?.compactMap({ ingredient in Ingredients(food: ingredient)}) ?? [],
-                           totalTime: Int($0.totalTime),
-                           favourite: true)
-    }}
+    var selectedRecipe: Recipe? {
+        didSet {
+            if let recipe = selectedRecipe, _coreDataManager.checkIfRecipeIsFavorite(recipe) {
+                selectedRecipe!.favourite = true
+            }
+        }
+    }
+    var favouriteRecipes: [Recipe] {
+        return _coreDataManager.favorites
+    }
     var downloadedRecipes: [Recipe] { _downloadedRecipes }
-    var recipeIsFavourite: Bool {
+    var selectedRecipeIsFavourite: Bool {
         if let favourite = selectedRecipe?.favourite, favourite {
             return true
         } else {
@@ -58,65 +56,36 @@ class RecipeManager {
         }
     }
     
-    /// Get recipes from CoreData
-    func downloadFavouriteRecipes() {
-        let request: NSFetchRequest<FavouriteRecipes> = FavouriteRecipes.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \FavouriteRecipes.label, ascending: true)]
-        
-        do {
-            _favouriteRecipes = try CoreDataStack.sharedInstance.viewContext.fetch(request)
-        } catch {
-            print("error during download")
-        }
-    }
-    
-    /// Check if the selected record is in the favourite list
-    func checkIfRecipeIsAlreadyInDatabase() {
-        downloadFavouriteRecipes()
-        
-        if _favouriteRecipes.contains(where: {$0.label == selectedRecipe!.label}) {
-            selectedRecipe!.favourite = true
-        }
-    }
-    
     /// Save the record on the database
     func saveRecordOnDatabase() -> AlertManager.AlertReson? {
-        guard let recipe = selectedRecipe else { return nil }
-        let recipeToSave = FavouriteRecipes(context: CoreDataStack.sharedInstance.viewContext)
-        recipeToSave.label = recipe.label
-        if let url = recipe.image {
-            recipeToSave.image = url.absoluteString
-        }
-        recipeToSave.ingredientLines = recipe.ingredientLines
-        recipeToSave.totalTime = Int32(recipe.totalTime)
-        recipeToSave.yield = Int16(recipe.yield)
-        recipeToSave.ingredients = recipe.ingredients.compactMap {$0.food}
-        recipeToSave.isFavourite = true
-        recipeToSave.url = recipe.url?.absoluteString
+        guard let recipe = selectedRecipe else { return .cannotSaveRecipe }
         
-        do {
-            try CoreDataStack.sharedInstance.viewContext.save()
-        } catch {
+        if _coreDataManager.addRecipe(recipe) {
+            selectedRecipe!.favourite = true
+            return nil
+        } else {
             return .cannotSaveRecipe
         }
-        return nil
     }
     
     /// Delete the record from the database
     func deleteRecordOnDatabase() -> AlertManager.AlertReson? {
-        guard recipeIsFavourite, let favouriteRecipe = _getFavouriteRecord() else { return nil }
-        CoreDataStack.sharedInstance.viewContext.delete(favouriteRecipe)
-        do {
-            try CoreDataStack.sharedInstance.viewContext.save()
-        } catch {
+        guard let selectedRecipe = selectedRecipe else { return .cannotDeleteRecipe }
+
+        if _coreDataManager.deleteRecipe(selectedRecipe) {
+            return nil
+        } else {
             return .cannotDeleteRecipe
         }
-        return nil
+    }
+    
+    func reloadFavoriteList() {
+        _coreDataManager.reloadFavoriteList()
     }
     
     // MARK: Initialization
-    init() {
-        downloadFavouriteRecipes()
+    init(coreDataStack: CoreDataStack = CoreDataStack()) {
+        _coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
     }
     
     // MARK: Private
@@ -124,8 +93,8 @@ class RecipeManager {
     private let _url = "https://api.edamam.com/api/recipes/v2?"
     private let _appKey = "70dbd40e1c5f36224bcbe1f10cb51fcb"
     private let _appId = "a86c7669"
-    private var _favouriteRecipes: [FavouriteRecipes] = []
     private var _downloadedRecipes: [Recipe] = []
+    private let _coreDataManager: CoreDataManager
     
     // MARK: Methods
     /// Configure the URL with parameters
@@ -140,10 +109,5 @@ class RecipeManager {
         }
         
         return components.url
-    }
-    
-    /// Get the favourite record of the selected recipe if it exits
-    private func _getFavouriteRecord() -> FavouriteRecipes? {
-        return _favouriteRecipes.first(where: {$0.label == selectedRecipe!.label})
     }
 }
