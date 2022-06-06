@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0614F24E2849F66C00911B8E /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614F24D2849F66C00911B8E /* MockCoreDataStack.swift */; };
 		0614F2512849F86200911B8E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614F2502849F86200911B8E /* CoreDataManager.swift */; };
-		064983D42847C81C00085D3F /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064983D32847C81C00085D3F /* AlertManager.swift */; };
 		064983D62848029B00085D3F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064983D52848029B00085D3F /* String.swift */; };
 		0657593F284666FF006055BB /* FavoriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0657593E284666FF006055BB /* FavoriteListController.swift */; };
 		065759452846748C006055BB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065759442846748C006055BB /* CoreDataStack.swift */; };
@@ -27,6 +26,7 @@
 		0697F0E0284A2FDD00A1AB3D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0697F0DF284A2FDD00A1AB3D /* NetworkManager.swift */; };
 		0697F0E2284A326100A1AB3D /* FakeNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0697F0E1284A326100A1AB3D /* FakeNetworkManager.swift */; };
 		0697F0E4284A390000A1AB3D /* recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 0697F0E3284A390000A1AB3D /* recipes.json */; };
+		06C711E5284E844700BA99BF /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C711E4284E844700BA99BF /* AlertManager.swift */; };
 		06D05DB2283CC86E009545AE /* InfoTilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB1283CC86E009545AE /* InfoTilesView.swift */; };
 		06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */; };
 		06D05DB6283CD43B009545AE /* IngredientsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB5283CD43B009545AE /* IngredientsListController.swift */; };
@@ -54,7 +54,6 @@
 /* Begin PBXFileReference section */
 		0614F24D2849F66C00911B8E /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		0614F2502849F86200911B8E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		064983D32847C81C00085D3F /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertManager.swift; path = ../../../../../../../../../../Downloads/AlertManager.swift; sourceTree = "<group>"; };
 		064983D52848029B00085D3F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		0657593E284666FF006055BB /* FavoriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListController.swift; sourceTree = "<group>"; };
 		065759442846748C006055BB /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -73,6 +72,7 @@
 		0697F0DF284A2FDD00A1AB3D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0697F0E1284A326100A1AB3D /* FakeNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkManager.swift; sourceTree = "<group>"; };
 		0697F0E3284A390000A1AB3D /* recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recipes.json; sourceTree = "<group>"; };
+		06C711E4284E844700BA99BF /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		06D05DB1283CC86E009545AE /* InfoTilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTilesView.swift; sourceTree = "<group>"; };
 		06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegradedGrayView.swift; sourceTree = "<group>"; };
 		06D05DB5283CD43B009545AE /* IngredientsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsListController.swift; sourceTree = "<group>"; };
@@ -186,11 +186,11 @@
 		0696374A283509CA0028AC0D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				06C711E4284E844700BA99BF /* AlertManager.swift */,
 				06D05DB5283CD43B009545AE /* IngredientsListController.swift */,
 				06D05DC1283CE94E009545AE /* RecipeListController.swift */,
 				06D05DCC283D1643009545AE /* DetailViewController.swift */,
 				0657593E284666FF006055BB /* FavoriteListController.swift */,
-				064983D32847C81C00085D3F /* AlertManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -336,12 +336,12 @@
 				06D05DB6283CD43B009545AE /* IngredientsListController.swift in Sources */,
 				0697F0E0284A2FDD00A1AB3D /* NetworkManager.swift in Sources */,
 				06D05DBA283CDBED009545AE /* IngredientCellView.swift in Sources */,
+				06C711E5284E844700BA99BF /* AlertManager.swift in Sources */,
 				069623392846791C0046E6E7 /* FavoriteRecipes.swift in Sources */,
 				069637192834E2CA0028AC0D /* AppDelegate.swift in Sources */,
 				06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */,
 				06D05DCB283D05B4009545AE /* UIImageView.swift in Sources */,
 				06D05DBC283CE1BE009545AE /* RecipeManager.swift in Sources */,
-				064983D42847C81C00085D3F /* AlertManager.swift in Sources */,
 				065759452846748C006055BB /* CoreDataStack.swift in Sources */,
 				06D05DC2283CE94E009545AE /* RecipeListController.swift in Sources */,
 				06D05DC6283CFDB3009545AE /* RecipeCellView.swift in Sources */,
