@@ -687,7 +687,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="star_fill" id="QcC-8H-e1r">
                             <color key="tintColor" name="ClearButtonBackground"/>
                             <connections>
-                                <action selector="toggleFavouriteButtonTouched:" destination="Lz9-mn-7IG" id="fub-4q-blp"/>
+                                <action selector="toggleFavoriteButtonTouched:" destination="Lz9-mn-7IG" id="sTI-A8-SJq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
