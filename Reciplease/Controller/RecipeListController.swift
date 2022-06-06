@@ -12,6 +12,7 @@ class RecipeListController: UIViewController {
     // MARK: Public
     // MARK: Outlet
     @IBOutlet weak var recipeTableView: UITableView!
+    @IBOutlet weak var noRecipeFoundView: UIView!
     
     // MARK: Properties
     var recipeManager = RecipeManager()
@@ -21,6 +22,7 @@ class RecipeListController: UIViewController {
         super.viewDidLoad()
         _delegateSetup()
         _dataSourceSetup()
+        _checkIfRecipesWereFound()
     }
     
     // MARK: Methods
@@ -40,6 +42,13 @@ class RecipeListController: UIViewController {
     // MARK: Properties
     private let _segueToDetails = "segueToDetails"
     private var _selectedRecipe: Recipe?
+    
+    // MARK: Methods
+    private func _checkIfRecipesWereFound() {
+        if recipeManager.downloadedRecipes.count == 0 {
+            noRecipeFoundView.isHidden = false
+        }
+    }
 }
 
 

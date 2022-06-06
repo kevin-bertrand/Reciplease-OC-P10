@@ -24,11 +24,13 @@ class IngredientListController: UIViewController {
     
     // MARK: Actions
     @IBAction func addIngredientButtonTouched() {
-        guard let ingredient = ingredientTextField.text, !ingredient.isEmpty else { return }
-        
-        _ingredients.append(ingredient)
-        ingredientTableView.reloadData()
-        ingredientTextField.text = ""
+        _addIngredient()
+//        self.view.endEditing(true)
+//        guard let ingredient = ingredientTextField.text, !ingredient.isEmpty else { return }
+//
+//        _ingredients.append(ingredient)
+//        ingredientTableView.reloadData()
+//        ingredientTextField.text = ""
     }
     
     @IBAction func clearListButtonTouched() {
@@ -71,14 +73,30 @@ class IngredientListController: UIViewController {
     private var _ingredients: [String] = []
     private let _segueToRecipeList = "segueToRecipeList"
     private let _recipeManager = RecipeManager()
+    
+    // MARK: Method
+    private func _addIngredient() {
+        self.view.endEditing(true)
+        guard let ingredient = ingredientTextField.text, !ingredient.isEmpty else { return }
+        
+        _ingredients.append(ingredient)
+        ingredientTableView.reloadData()
+        ingredientTextField.text = ""
+    }
 }
 
 // MARK: Delegate extension
-extension IngredientListController: UITableViewDelegate  {
+extension IngredientListController: UITableViewDelegate, UITextFieldDelegate  {
     // MARK: Private method
     /// Setup the delegate
     private func _delegateSetup() {
         ingredientTableView.delegate = self
+        ingredientTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        _addIngredient()
+        return false
     }
 }
 

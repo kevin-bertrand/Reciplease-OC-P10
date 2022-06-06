@@ -23,7 +23,7 @@ struct Recipe: Codable {
     let ingredientLines: [String]
     let ingredients: [Ingredients]
     let totalTime: Int
-    var favourite: Bool?
+    var favorite: Bool?
 }
 
 struct Ingredients: Codable {

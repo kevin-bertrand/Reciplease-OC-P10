@@ -16,7 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var yieldLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var favouriteButton: UIBarButtonItem!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     @IBOutlet weak var getDirectionButton: UIButton!
     
     // MARK: Properties
@@ -30,11 +30,11 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: Action
-    @IBAction func toggleFavouriteButtonTouched(_ sender: Any) {
+    @IBAction func toggleFavoriteButtonTouched(_ sender: Any) {
         guard let _ = recipeManager.selectedRecipe else { return }
         _updateDatabase()
-        recipeManager.selectedRecipe!.favourite!.toggle()
-        _updateFavouriteButtonColor()
+        recipeManager.selectedRecipe!.favorite!.toggle()
+        _updateFavoriteButtonColor()
     }
     
     @IBAction func getDirectionButtonTouched(_ sender: Any) {
@@ -65,21 +65,21 @@ class DetailViewController: UIViewController {
             getDirectionButton.isEnabled = false
         }
         
-        _updateFavouriteButtonColor()
+        _updateFavoriteButtonColor()
     }
     
-    /// Update favourite button tint color
-    private func _updateFavouriteButtonColor() {
-        if recipeManager.selectedRecipeIsFavourite {
-            favouriteButton.tintColor = UIColor(named: "Button Background")
+    /// Update favorite button tint color
+    private func _updateFavoriteButtonColor() {
+        if recipeManager.selectedRecipeIsFavorite {
+            favoriteButton.tintColor = UIColor(named: "Button Background")
         } else {
-            favouriteButton.tintColor = UIColor(named: "ClearButtonBackground")
+            favoriteButton.tintColor = UIColor(named: "ClearButtonBackground")
         }
     }
     
     /// Update the database (save or delete the record)
     private func _updateDatabase() {
-        if recipeManager.selectedRecipeIsFavourite {
+        if recipeManager.selectedRecipeIsFavorite {
             if let error = recipeManager.deleteRecordOnDatabase() {
                 AlertManager.shared.sendAlert(error, on: self)
             }

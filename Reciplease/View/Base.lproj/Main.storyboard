@@ -12,7 +12,7 @@
         <!--Favourtie list-->
         <scene sceneID="xOx-R1-RHI">
             <objects>
-                <viewController title="Favourtie list" id="Ng8-VD-yte" customClass="FavouriteListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Favourtie list" id="Ng8-VD-yte" customClass="FavoriteListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ss5-GH-aB1">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,22 +116,22 @@
                                 <rect key="frame" x="0.0" y="88" width="428" height="755"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="b9R-AX-Q7P">
-                                        <rect key="frame" x="0.0" y="297.66666666666669" width="428" height="159.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="309.33333333333331" width="428" height="136.33333333333331"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no favourites." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm3-lf-2S7">
-                                                <rect key="frame" x="105" y="0.0" width="218" height="23.666666666666668"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no favorites." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm3-lf-2S7">
+                                                <rect key="frame" x="110.66666666666667" y="0.0" width="206.66666666666663" height="23.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
                                                 <color key="textColor" name="Foreground"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To add a new favourite, click on the star at the top right of the recipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-bp-xF2">
-                                                <rect key="frame" x="10" y="55.666666666666629" width="408" height="47"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To add a new favorite, click on the star at the top right of the recipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-bp-xF2">
+                                                <rect key="frame" x="10" y="55.666666666666679" width="408" height="23.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
                                                 <color key="textColor" name="Foreground"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="add_favourite_tips" translatesAutoresizingMaskIntoConstraints="NO" id="1zC-Ft-3mi">
-                                                <rect key="frame" x="0.0" y="134.66666666666669" width="428" height="25"/>
+                                                <rect key="frame" x="0.0" y="111.33333333333337" width="428" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="GrH-hN-Pz6"/>
                                                 </constraints>
@@ -169,9 +169,9 @@
                     <tabBarItem key="tabBarItem" title="Favorite" id="j1b-LB-e3E"/>
                     <navigationItem key="navigationItem" title="Reciplease" id="0zR-8I-Y1s"/>
                     <connections>
-                        <outlet property="favouriteRecipeTableView" destination="gok-lz-KEd" id="fea-4d-naC"/>
-                        <outlet property="noFavouriteView" destination="lus-k4-h9S" id="fxX-5F-hdD"/>
-                        <segue destination="Lz9-mn-7IG" kind="show" identifier="segueFromFavouriteToDetail" id="GR8-9a-lAi"/>
+                        <outlet property="favoriteRecipeTableView" destination="gok-lz-KEd" id="fea-4d-naC"/>
+                        <outlet property="noFavoriteView" destination="lus-k4-h9S" id="fxX-5F-hdD"/>
+                        <segue destination="Lz9-mn-7IG" kind="show" identifier="segueFromFavoriteToDetail" id="GR8-9a-lAi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ee-fZ-F4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -233,6 +233,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's in your fridge ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhp-Re-YGe">
                                         <rect key="frame" x="0.0" y="15" width="428" height="40"/>
+                                        <accessibility key="accessibilityConfiguration" label="What's in your fridge"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6wc-op-TIu"/>
                                         </constraints>
@@ -246,13 +247,15 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lemon, Cheese, Sausages..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X7A-xh-cme">
                                                 <rect key="frame" x="0.0" y="0.0" width="309.33333333333331" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Enter one ingredient" label="Ingredient text field"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yr-7o-Ude">
                                                 <rect key="frame" x="319.33333333333331" y="0.0" width="92.666666666666686" height="34"/>
                                                 <color key="backgroundColor" name="Button Background"/>
+                                                <accessibility key="accessibilityConfiguration" hint="Ingredient added" label="Add ingredient button"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Add">
                                                     <color key="titleColor" name="Foreground"/>
@@ -306,6 +309,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84b-3G-Sz5">
                                 <rect key="frame" x="50" y="768" width="328" height="60"/>
                                 <color key="backgroundColor" name="Button Background"/>
+                                <accessibility key="accessibilityConfiguration" hint="Searching begin" label="Search recipe button"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="LaN-SH-ci4"/>
                                 </constraints>
@@ -464,12 +468,18 @@
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,5k 👍" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fFg-2G-iNx">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="17"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <bool key="isElement" value="NO"/>
+                                                                    </accessibility>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <color key="textColor" name="Foreground"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10m 🕓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GHU-9t-J4d">
                                                                     <rect key="frame" x="0.0" y="27" width="60" height="17"/>
+                                                                    <accessibility key="accessibilityConfiguration">
+                                                                        <bool key="isElement" value="NO"/>
+                                                                    </accessibility>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <color key="textColor" name="Foreground"/>
                                                                     <nil key="highlightedColor"/>
@@ -511,20 +521,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wi6-gY-OC3" userLabel="No recipe found view">
+                                <rect key="frame" x="0.0" y="88" width="428" height="755"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No recipe was found!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3o-g0-2Os">
+                                        <rect key="frame" x="15" y="359.33333333333331" width="398" height="36.666666666666686"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="29"/>
+                                        <color key="textColor" name="Foreground"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Background"/>
+                                <constraints>
+                                    <constraint firstItem="t3o-g0-2Os" firstAttribute="leading" secondItem="Wi6-gY-OC3" secondAttribute="leading" constant="15" id="Im7-NF-gkn"/>
+                                    <constraint firstItem="t3o-g0-2Os" firstAttribute="centerY" secondItem="Wi6-gY-OC3" secondAttribute="centerY" id="l0t-5t-PIv"/>
+                                    <constraint firstAttribute="trailing" secondItem="t3o-g0-2Os" secondAttribute="trailing" constant="15" id="uqC-oT-U2J"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1En-qA-Yvr"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
+                            <constraint firstItem="1En-qA-Yvr" firstAttribute="trailing" secondItem="Wi6-gY-OC3" secondAttribute="trailing" id="97B-L8-Nne"/>
+                            <constraint firstItem="1En-qA-Yvr" firstAttribute="bottom" secondItem="Wi6-gY-OC3" secondAttribute="bottom" id="SXX-aR-HBd"/>
+                            <constraint firstItem="Wi6-gY-OC3" firstAttribute="top" secondItem="1En-qA-Yvr" secondAttribute="top" id="SwV-kz-JqO"/>
+                            <constraint firstItem="Wi6-gY-OC3" firstAttribute="leading" secondItem="1En-qA-Yvr" secondAttribute="leading" id="TjO-Yu-UOf"/>
                             <constraint firstItem="1En-qA-Yvr" firstAttribute="trailing" secondItem="eu6-v3-X5x" secondAttribute="trailing" id="Y8d-Z3-Nf9"/>
                             <constraint firstItem="eu6-v3-X5x" firstAttribute="top" secondItem="1En-qA-Yvr" secondAttribute="top" constant="8" id="csr-qY-zaQ"/>
                             <constraint firstItem="eu6-v3-X5x" firstAttribute="leading" secondItem="1En-qA-Yvr" secondAttribute="leading" id="oOj-Gi-FDg"/>
                             <constraint firstItem="1En-qA-Yvr" firstAttribute="bottom" secondItem="eu6-v3-X5x" secondAttribute="bottom" id="v3L-q9-bye"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Reciplease" largeTitleDisplayMode="always" id="Pq6-fq-oRo">
-                        <barButtonItem key="backBarButtonItem" title="Search" id="ngc-NU-Cg1"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Reciplease" largeTitleDisplayMode="always" id="Pq6-fq-oRo"/>
                     <connections>
+                        <outlet property="noRecipeFoundView" destination="Wi6-gY-OC3" id="U77-ry-48y"/>
                         <outlet property="recipeTableView" destination="eu6-v3-X5x" id="9i1-wp-Er5"/>
                         <segue destination="Lz9-mn-7IG" kind="show" identifier="segueToDetails" id="Qvz-qx-vUy"/>
                     </connections>
@@ -662,7 +692,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="favouriteButton" destination="QcC-8H-e1r" id="alp-A2-fQX"/>
+                        <outlet property="favoriteButton" destination="QcC-8H-e1r" id="alp-A2-fQX"/>
                         <outlet property="getDirectionButton" destination="99C-jO-m6b" id="8Qb-rm-0qt"/>
                         <outlet property="ingredientsTextView" destination="v95-6n-9Wh" id="PJp-Gw-OuZ"/>
                         <outlet property="plateImage" destination="9fc-J3-SxW" id="zOJ-24-r29"/>

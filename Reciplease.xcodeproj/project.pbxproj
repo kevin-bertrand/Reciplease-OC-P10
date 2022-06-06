@@ -11,9 +11,9 @@
 		0614F2512849F86200911B8E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614F2502849F86200911B8E /* CoreDataManager.swift */; };
 		064983D42847C81C00085D3F /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064983D32847C81C00085D3F /* AlertManager.swift */; };
 		064983D62848029B00085D3F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064983D52848029B00085D3F /* String.swift */; };
-		0657593F284666FF006055BB /* FavouriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0657593E284666FF006055BB /* FavouriteListController.swift */; };
+		0657593F284666FF006055BB /* FavoriteListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0657593E284666FF006055BB /* FavoriteListController.swift */; };
 		065759452846748C006055BB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065759442846748C006055BB /* CoreDataStack.swift */; };
-		069623392846791C0046E6E7 /* FavouriteRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069623382846791C0046E6E7 /* FavouriteRecipes.swift */; };
+		069623392846791C0046E6E7 /* FavoriteRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069623382846791C0046E6E7 /* FavoriteRecipes.swift */; };
 		0696233C284683D30046E6E7 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0696233A284683D30046E6E7 /* Reciplease.xcdatamodeld */; };
 		069637192834E2CA0028AC0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069637182834E2CA0028AC0D /* AppDelegate.swift */; };
 		0696371B2834E2CA0028AC0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696371A2834E2CA0028AC0D /* SceneDelegate.swift */; };
@@ -21,6 +21,12 @@
 		069637222834E2CC0028AC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069637212834E2CC0028AC0D /* Assets.xcassets */; };
 		069637252834E2CC0028AC0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069637232834E2CC0028AC0D /* LaunchScreen.storyboard */; };
 		069637302834E2CC0028AC0D /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0696372F2834E2CC0028AC0D /* RecipleaseTests.swift */; };
+		0697F0D7284A1AB100A1AB3D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0697F0D6284A1AB100A1AB3D /* Alamofire */; };
+		0697F0DC284A2C7700A1AB3D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0697F0DB284A2C7700A1AB3D /* Alamofire */; };
+		0697F0DE284A2F7900A1AB3D /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0697F0DD284A2F7900A1AB3D /* FakeResponseData.swift */; };
+		0697F0E0284A2FDD00A1AB3D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0697F0DF284A2FDD00A1AB3D /* NetworkManager.swift */; };
+		0697F0E2284A326100A1AB3D /* FakeNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0697F0E1284A326100A1AB3D /* FakeNetworkManager.swift */; };
+		0697F0E4284A390000A1AB3D /* recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 0697F0E3284A390000A1AB3D /* recipes.json */; };
 		06D05DB2283CC86E009545AE /* InfoTilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB1283CC86E009545AE /* InfoTilesView.swift */; };
 		06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */; };
 		06D05DB6283CD43B009545AE /* IngredientsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB5283CD43B009545AE /* IngredientsListController.swift */; };
@@ -50,9 +56,9 @@
 		0614F2502849F86200911B8E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		064983D32847C81C00085D3F /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertManager.swift; path = ../../../../../../../../../../Downloads/AlertManager.swift; sourceTree = "<group>"; };
 		064983D52848029B00085D3F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		0657593E284666FF006055BB /* FavouriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListController.swift; sourceTree = "<group>"; };
+		0657593E284666FF006055BB /* FavoriteListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListController.swift; sourceTree = "<group>"; };
 		065759442846748C006055BB /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		069623382846791C0046E6E7 /* FavouriteRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRecipes.swift; sourceTree = "<group>"; };
+		069623382846791C0046E6E7 /* FavoriteRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipes.swift; sourceTree = "<group>"; };
 		0696233B284683D30046E6E7 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		069637152834E2CA0028AC0D /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		069637182834E2CA0028AC0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,10 @@
 		069637262834E2CC0028AC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0696372B2834E2CC0028AC0D /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0696372F2834E2CC0028AC0D /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
+		0697F0DD284A2F7900A1AB3D /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		0697F0DF284A2FDD00A1AB3D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0697F0E1284A326100A1AB3D /* FakeNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkManager.swift; sourceTree = "<group>"; };
+		0697F0E3284A390000A1AB3D /* recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recipes.json; sourceTree = "<group>"; };
 		06D05DB1283CC86E009545AE /* InfoTilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTilesView.swift; sourceTree = "<group>"; };
 		06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegradedGrayView.swift; sourceTree = "<group>"; };
 		06D05DB5283CD43B009545AE /* IngredientsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsListController.swift; sourceTree = "<group>"; };
@@ -82,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06D05DBF283CE2B5009545AE /* Alamofire in Frameworks */,
+				0697F0D7284A1AB100A1AB3D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0697F0DC284A2C7700A1AB3D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				065759442846748C006055BB /* CoreDataStack.swift */,
-				069623382846791C0046E6E7 /* FavouriteRecipes.swift */,
+				069623382846791C0046E6E7 /* FavoriteRecipes.swift */,
 				0696233A284683D30046E6E7 /* Reciplease.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -140,6 +152,9 @@
 			children = (
 				0696372F2834E2CC0028AC0D /* RecipleaseTests.swift */,
 				0614F24D2849F66C00911B8E /* MockCoreDataStack.swift */,
+				0697F0DD284A2F7900A1AB3D /* FakeResponseData.swift */,
+				0697F0E1284A326100A1AB3D /* FakeNetworkManager.swift */,
+				0697F0E3284A390000A1AB3D /* recipes.json */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -151,6 +166,7 @@
 				06D05DBB283CE1BE009545AE /* RecipeManager.swift */,
 				06D05DC3283CEDED009545AE /* Recipe.swift */,
 				0614F2502849F86200911B8E /* CoreDataManager.swift */,
+				0697F0DF284A2FDD00A1AB3D /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,7 +189,7 @@
 				06D05DB5283CD43B009545AE /* IngredientsListController.swift */,
 				06D05DC1283CE94E009545AE /* RecipeListController.swift */,
 				06D05DCC283D1643009545AE /* DetailViewController.swift */,
-				0657593E284666FF006055BB /* FavouriteListController.swift */,
+				0657593E284666FF006055BB /* FavoriteListController.swift */,
 				064983D32847C81C00085D3F /* AlertManager.swift */,
 			);
 			path = Controller;
@@ -219,6 +235,7 @@
 			name = Reciplease;
 			packageProductDependencies = (
 				06D05DBE283CE2B5009545AE /* Alamofire */,
+				0697F0D6284A1AB100A1AB3D /* Alamofire */,
 			);
 			productName = Reciplease;
 			productReference = 069637152834E2CA0028AC0D /* Reciplease.app */;
@@ -238,6 +255,9 @@
 				0696372D2834E2CC0028AC0D /* PBXTargetDependency */,
 			);
 			name = RecipleaseTests;
+			packageProductDependencies = (
+				0697F0DB284A2C7700A1AB3D /* Alamofire */,
+			);
 			productName = RecipleaseTests;
 			productReference = 0696372B2834E2CC0028AC0D /* RecipleaseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -272,6 +292,8 @@
 			mainGroup = 0696370C2834E2CA0028AC0D;
 			packageReferences = (
 				06D05DBD283CE2B5009545AE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0697F0D5284A1AB100A1AB3D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0697F0DA284A2C7700A1AB3D /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 069637162834E2CA0028AC0D /* Products */;
 			projectDirPath = "";
@@ -298,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0697F0E4284A390000A1AB3D /* recipes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,8 +334,9 @@
 				064983D62848029B00085D3F /* String.swift in Sources */,
 				06D05DCD283D1643009545AE /* DetailViewController.swift in Sources */,
 				06D05DB6283CD43B009545AE /* IngredientsListController.swift in Sources */,
+				0697F0E0284A2FDD00A1AB3D /* NetworkManager.swift in Sources */,
 				06D05DBA283CDBED009545AE /* IngredientCellView.swift in Sources */,
-				069623392846791C0046E6E7 /* FavouriteRecipes.swift in Sources */,
+				069623392846791C0046E6E7 /* FavoriteRecipes.swift in Sources */,
 				069637192834E2CA0028AC0D /* AppDelegate.swift in Sources */,
 				06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */,
 				06D05DCB283D05B4009545AE /* UIImageView.swift in Sources */,
@@ -321,7 +345,7 @@
 				065759452846748C006055BB /* CoreDataStack.swift in Sources */,
 				06D05DC2283CE94E009545AE /* RecipeListController.swift in Sources */,
 				06D05DC6283CFDB3009545AE /* RecipeCellView.swift in Sources */,
-				0657593F284666FF006055BB /* FavouriteListController.swift in Sources */,
+				0657593F284666FF006055BB /* FavoriteListController.swift in Sources */,
 				06D05DC9283D04AE009545AE /* Int.swift in Sources */,
 				06D05DC4283CEDED009545AE /* Recipe.swift in Sources */,
 				06D05DB2283CC86E009545AE /* InfoTilesView.swift in Sources */,
@@ -336,7 +360,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				069637302834E2CC0028AC0D /* RecipleaseTests.swift in Sources */,
+				0697F0DE284A2F7900A1AB3D /* FakeResponseData.swift in Sources */,
 				0614F24E2849F66C00911B8E /* MockCoreDataStack.swift in Sources */,
+				0697F0E2284A326100A1AB3D /* FakeNetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -474,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -617,6 +643,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0697F0D5284A1AB100A1AB3D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		0697F0DA284A2C7700A1AB3D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		06D05DBD283CE2B5009545AE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -628,6 +670,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0697F0D6284A1AB100A1AB3D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0697F0D5284A1AB100A1AB3D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0697F0DB284A2C7700A1AB3D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0697F0D5284A1AB100A1AB3D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		06D05DBE283CE2B5009545AE /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 06D05DBD283CE2B5009545AE /* XCRemoteSwiftPackageReference "Alamofire" */;

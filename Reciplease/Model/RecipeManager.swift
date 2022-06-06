@@ -15,44 +15,41 @@ class RecipeManager {
     var selectedRecipe: Recipe? {
         didSet {
             if let recipe = selectedRecipe, _coreDataManager.checkIfRecipeIsFavorite(recipe) {
-                selectedRecipe!.favourite = true
+                selectedRecipe!.favorite = true
             }
         }
     }
-    var favouriteRecipes: [Recipe] {
+    var favoriteRecipes: [Recipe] {
         return _coreDataManager.favorites
     }
     var downloadedRecipes: [Recipe] { _downloadedRecipes }
-    var selectedRecipeIsFavourite: Bool {
-        if let favourite = selectedRecipe?.favourite, favourite {
-            return true
-        } else {
-            return false
-        }
+    var selectedRecipeIsFavorite: Bool {
+        guard let recipe = selectedRecipe else { return false }
+        return _coreDataManager.checkIfRecipeIsFavorite(recipe)
     }
     
     // MARK: Methods
     /// Download recipe from a list of ingredients
     func getRecipes(forIngredients ingredients: [String], completionHandler: @escaping ((Bool) -> Void)) {
-        guard let url = createRequest(withIngredients: ingredients) else {
+        guard let url = _createRequest(withIngredients: ingredients) else {
             completionHandler(false)
             return
         }
-        let request = AF.request(url) { $0.timeoutInterval = 10 }.validate()
         
-        request.responseDecodable(of: RecipesHits.self) { [weak self] response in
+        _networkManager.request(url: url) { [weak self] response in
             guard let self = self else { return }
+            var isASuccess = false
             switch response.result {
             case .success:
                 if let hits = response.value  {
                     self._downloadedRecipes = hits.hits.map{$0.recipe}
-                    completionHandler(true)
-                } else {
-                    completionHandler(false)
+                    isASuccess = true
                 }
             case .failure:
-                completionHandler(false)
+                break
             }
+            
+            completionHandler(isASuccess)
         }
     }
     
@@ -60,32 +57,41 @@ class RecipeManager {
     func saveRecordOnDatabase() -> AlertManager.AlertReson? {
         guard let recipe = selectedRecipe else { return .cannotSaveRecipe }
         
+        var alert: AlertManager.AlertReson? = nil
+        
         if _coreDataManager.addRecipe(recipe) {
-            selectedRecipe!.favourite = true
-            return nil
+            selectedRecipe!.favorite = true
         } else {
-            return .cannotSaveRecipe
+            alert = .cannotSaveRecipe
         }
+        
+        return alert
     }
     
     /// Delete the record from the database
     func deleteRecordOnDatabase() -> AlertManager.AlertReson? {
         guard let selectedRecipe = selectedRecipe else { return .cannotDeleteRecipe }
 
-        if _coreDataManager.deleteRecipe(selectedRecipe) {
-            return nil
-        } else {
-            return .cannotDeleteRecipe
+        return _coreDataManager.deleteRecipe(selectedRecipe) ?  nil : .cannotDeleteRecipe
+    }
+    
+    /// Delete all records
+    func deleteALlRecordOnDatabase() -> AlertManager.AlertReson? {
+        var alert: AlertManager.AlertReson? = nil
+        
+        if !_coreDataManager.deleteAllRecipe() {
+            alert = .cannotDeleteRecipe
         }
+        
+        return alert
     }
     
     func reloadFavoriteList() {
         _coreDataManager.reloadFavoriteList()
     }
     
-    // MARK: Initialization
-    init(coreDataStack: CoreDataStack = CoreDataStack()) {
-        _coreDataManager = CoreDataManager(coreDataStack: coreDataStack)
+    init(networkManager: NetworkManager = NetworkManager()) {
+        _networkManager = networkManager
     }
     
     // MARK: Private
@@ -94,11 +100,12 @@ class RecipeManager {
     private let _appKey = "70dbd40e1c5f36224bcbe1f10cb51fcb"
     private let _appId = "a86c7669"
     private var _downloadedRecipes: [Recipe] = []
-    private let _coreDataManager: CoreDataManager
+    private let _coreDataManager = CoreDataManager()
+    private var _networkManager: NetworkManager
     
     // MARK: Methods
     /// Configure the URL with parameters
-    private func createRequest(withIngredients ingredients: [String]) -> URL? {
+    private func _createRequest(withIngredients ingredients: [String]) -> URL? {
         let params = ["type": "public", "q": ingredients.joined(separator: ","), "app_id": _appId, "app_key": _appKey]
         
         guard var components = URLComponents(string: _url) else { return nil }
