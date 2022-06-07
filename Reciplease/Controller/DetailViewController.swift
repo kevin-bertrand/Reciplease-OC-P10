@@ -60,13 +60,7 @@ class DetailViewController: UIViewController {
         yieldLabel.accessibilityLabel = "\(recipe.yield) likes"
         timeLabel.text = "\(recipe.totalTime.formatToStringTime) 🕓"
         timeLabel.accessibilityLabel = "\(recipe.totalTime.formatToStringTime) to prepare this recipe"
-        
-//        ingredientsTextView.text = ""
-//        for ingredient in recipe.ingredientLines {
-//            ingredientsTextView.text.append("- \(ingredient)\n")
-//        }
-//        ingredientsTextView.accessibilityLabel = ingredientsTextView.text
-        
+                
         if recipe.url == nil {
             getDirectionButton.isEnabled = false
             getDirectionButton.accessibilityHint = "Get direction button"

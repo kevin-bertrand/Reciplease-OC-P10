@@ -25,8 +25,8 @@
 		0697F0E2284A326100A1AB3D /* FakeNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0697F0E1284A326100A1AB3D /* FakeNetworkManager.swift */; };
 		0697F0E4284A390000A1AB3D /* recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 0697F0E3284A390000A1AB3D /* recipes.json */; };
 		06C711E5284E844700BA99BF /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C711E4284E844700BA99BF /* AlertManager.swift */; };
-		06C711E8284E96A300BA99BF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 06C711E7284E96A300BA99BF /* Alamofire */; };
 		06C711EA284F4BEC00BA99BF /* TextFieldDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C711E9284F4BEC00BA99BF /* TextFieldDesign.swift */; };
+		06C711ED284FAADB00BA99BF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 06C711EC284FAADB00BA99BF /* Alamofire */; };
 		06D05DB2283CC86E009545AE /* InfoTilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB1283CC86E009545AE /* InfoTilesView.swift */; };
 		06D05DB4283CCDEB009545AE /* DegradedGrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB3283CCDEB009545AE /* DegradedGrayView.swift */; };
 		06D05DB6283CD43B009545AE /* IngredientsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D05DB5283CD43B009545AE /* IngredientsListController.swift */; };
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06C711E8284E96A300BA99BF /* Alamofire in Frameworks */,
+				06C711ED284FAADB00BA99BF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +121,7 @@
 				069637172834E2CA0028AC0D /* Reciplease */,
 				0696372E2834E2CC0028AC0D /* RecipleaseTests */,
 				069637162834E2CA0028AC0D /* Products */,
+				06C711EB284FAAD700BA99BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +207,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		06C711EB284FAAD700BA99BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		06D05DC7283D049F009545AE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,7 +241,7 @@
 			);
 			name = Reciplease;
 			packageProductDependencies = (
-				06C711E7284E96A300BA99BF /* Alamofire */,
+				06C711EC284FAADB00BA99BF /* Alamofire */,
 			);
 			productName = Reciplease;
 			productReference = 069637152834E2CA0028AC0D /* Reciplease.app */;
@@ -650,7 +658,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		06C711E7284E96A300BA99BF /* Alamofire */ = {
+		06C711EC284FAADB00BA99BF /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 06C711E6284E96A300BA99BF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
