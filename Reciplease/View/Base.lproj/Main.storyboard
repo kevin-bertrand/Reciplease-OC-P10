@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="428" height="755"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="b9R-AX-Q7P">
-                                        <rect key="frame" x="0.0" y="309.33333333333331" width="428" height="136.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="297.66666666666669" width="428" height="159.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no favorites." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm3-lf-2S7">
                                                 <rect key="frame" x="110.66666666666667" y="0.0" width="206.66666666666663" height="23.666666666666668"/>
@@ -31,13 +31,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To add a new favorite, click on the star at the top right of the recipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-bp-xF2">
-                                                <rect key="frame" x="10" y="55.666666666666679" width="408" height="23.666666666666664"/>
+                                                <rect key="frame" x="10" y="55.666666666666629" width="408" height="47"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
                                                 <color key="textColor" name="Foreground"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="add_favourite_tips" translatesAutoresizingMaskIntoConstraints="NO" id="1zC-Ft-3mi">
-                                                <rect key="frame" x="0.0" y="111.33333333333337" width="428" height="25"/>
+                                                <rect key="frame" x="0.0" y="134.66666666666669" width="428" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="GrH-hN-Pz6"/>
                                                 </constraints>
