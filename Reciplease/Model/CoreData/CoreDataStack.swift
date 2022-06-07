@@ -27,6 +27,7 @@ open class CoreDataStack {
     }()
     
     // MARK: Methods
+    /// Save the context
     func saveContext() -> Bool{
         var isSaved = false
         guard CoreDataStack.mainContext.hasChanges else { return isSaved }

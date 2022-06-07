@@ -9,8 +9,8 @@ import Foundation
 import Alamofire
 
 class NetworkManager: NetworkProtocol {
+    /// Perform Alamofire request
     func request(url: URL, completionHandler: @escaping (DataResponse<RecipesHits, AFError>) -> Void) {
-        print("AF")
         let request = AF.request(url) { $0.timeoutInterval = 10 }.validate()
         request.responseDecodable(completionHandler: completionHandler)
     }

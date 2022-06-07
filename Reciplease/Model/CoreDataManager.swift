@@ -17,6 +17,7 @@ class CoreDataManager {
     var favorites: [Recipe] = []
     
     // MARK: Methods
+    /// Delete a specific recipe from the database
     func deleteRecipe(_ recipe: Recipe) -> Bool {
         let request: NSFetchRequest<FavoriteRecipes> = FavoriteRecipes.fetchRequest()
         request.predicate = NSPredicate(format: "label == %@", recipe.label)
@@ -28,6 +29,7 @@ class CoreDataManager {
         return _coreDataStack.saveContext()
     }
     
+    /// Delete all the favorite recipes from the database
     func deleteAllRecipe() -> Bool {
         let request: NSFetchRequest<FavoriteRecipes> = FavoriteRecipes.fetchRequest()
         
@@ -37,6 +39,7 @@ class CoreDataManager {
         return _coreDataStack.saveContext()
     }
     
+    /// Add a new recipe to the favorite database
     func addRecipe(_ recipe: Recipe) -> Bool {
         guard !checkIfRecipeIsFavorite(recipe) else { return false }
         
@@ -55,6 +58,7 @@ class CoreDataManager {
         return _coreDataStack.saveContext()
     }
     
+    /// Check if a specific recipe is already on the favorite database
     func checkIfRecipeIsFavorite(_ recipe: Recipe) -> Bool {
         let request: NSFetchRequest<FavoriteRecipes> = FavoriteRecipes.fetchRequest()
         request.predicate = NSPredicate(format: "label == %@", recipe.label)
@@ -64,6 +68,7 @@ class CoreDataManager {
         return true
     }
     
+    /// Reload all the favorite list
     func reloadFavoriteList() {
         let request: NSFetchRequest<FavoriteRecipes> = FavoriteRecipes.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \FavoriteRecipes.label, ascending: true)]
@@ -85,6 +90,11 @@ class CoreDataManager {
         } catch {
             favorites = []
         }
+    }
+    
+    /// Call the CoreData stack to save the context
+    func saveContext() {
+        _ = _coreDataStack.saveContext()
     }
     
     // MARK: Private

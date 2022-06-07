@@ -109,7 +109,7 @@ extension DetailViewController: UITableViewDelegate {
 
 extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeManager.selectedRecipe?.ingredients.count ?? 0
+        return recipeManager.selectedRecipe?.ingredientLines.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

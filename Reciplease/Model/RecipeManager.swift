@@ -86,6 +86,7 @@ class RecipeManager {
         return alert
     }
     
+    /// Reload the favorite list
     func reloadFavoriteList() {
         _coreDataManager.reloadFavoriteList()
     }
