@@ -22,9 +22,13 @@ class RecipeCellView: UITableViewCell {
             _plateImageView.dowloadFrom(url)
         }
         _ingredientsLabel.text = recipe.ingredients.compactMap({$0.food}).joined(separator: ", ")
+        _ingredientsLabel.accessibilityLabel = _ingredientsLabel.text
         _plateTitleLabel.text = recipe.label
+        _plateTitleLabel.accessibilityLabel = _plateTitleLabel.text
         _yieldLabel.text = "\(recipe.yield) 👍"
+        _yieldLabel.accessibilityLabel = "\(recipe.yield) likes"
         _timeLabel.text = "\(recipe.totalTime.formatToStringTime)  🕓"
+        _timeLabel.accessibilityLabel = "\(recipe.totalTime.formatToStringTime) to prepare this recipe"
     }
     
     // MARK: Private

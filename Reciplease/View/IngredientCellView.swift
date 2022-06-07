@@ -18,6 +18,7 @@ class IngredientCellView: UITableViewCell {
     /// Configure the table view cell
     func configure(withIngredient ingredient: String) {
         _ingredientLabel.text = "- \(ingredient.trimmingCharacters(in: .whitespacesAndNewlines).capitalizingFirstLetter())"
+        _ingredientLabel.accessibilityLabel = ingredient
     }
     
     // MARK: Private

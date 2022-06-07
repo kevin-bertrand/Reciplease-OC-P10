@@ -13,11 +13,11 @@ class DetailViewController: UIViewController {
     // MARK: Outlet
     @IBOutlet weak var plateImage: UIImageView!
     @IBOutlet weak var plateNameLabel: UILabel!
-    @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var yieldLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     @IBOutlet weak var getDirectionButton: UIButton!
+    @IBOutlet weak var ingredientTableView: UITableView!
     
     // MARK: Properties
     var recipeManager = RecipeManager()
@@ -26,6 +26,8 @@ class DetailViewController: UIViewController {
     // MARK: View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        _delegateSetup()
+        _dataSourceSetup()
         _configureView()
     }
     
@@ -53,16 +55,22 @@ class DetailViewController: UIViewController {
             plateImage.dowloadFrom(url)
         }
         plateNameLabel.text = recipe.label
+        plateNameLabel.accessibilityLabel  = plateNameLabel.text
         yieldLabel.text = "\(recipe.yield) 👍"
+        yieldLabel.accessibilityLabel = "\(recipe.yield) likes"
         timeLabel.text = "\(recipe.totalTime.formatToStringTime) 🕓"
+        timeLabel.accessibilityLabel = "\(recipe.totalTime.formatToStringTime) to prepare this recipe"
         
-        ingredientsTextView.text = ""
-        for ingredient in recipe.ingredientLines {
-            ingredientsTextView.text.append("- \(ingredient)\n")
-        }
+//        ingredientsTextView.text = ""
+//        for ingredient in recipe.ingredientLines {
+//            ingredientsTextView.text.append("- \(ingredient)\n")
+//        }
+//        ingredientsTextView.accessibilityLabel = ingredientsTextView.text
         
         if recipe.url == nil {
             getDirectionButton.isEnabled = false
+            getDirectionButton.accessibilityHint = "Get direction button"
+            getDirectionButton.accessibilityHint = "Go to the direction to prepare this recipe"
         }
         
         _updateFavoriteButtonColor()
@@ -88,5 +96,34 @@ class DetailViewController: UIViewController {
                 AlertManager.shared.sendAlert(error, on: self)
             }
         }
+    }
+}
+
+extension DetailViewController: UITableViewDelegate {
+    // MARK: Private method
+    /// Setup the delegate
+    private func _delegateSetup() {
+        ingredientTableView.delegate = self
+    }
+}
+
+extension DetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recipeManager.selectedRecipe?.ingredients.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let ingredientCell = tableView.dequeueReusableCell(withIdentifier: "Ingredient-detailled-cell", for: indexPath) as? IngredientCellView, let selectedRecipe = recipeManager.selectedRecipe else {
+            return UITableViewCell()
+        }
+        
+        ingredientCell.configure(withIngredient: selectedRecipe.ingredientLines[indexPath.row])
+        return ingredientCell
+    }
+    
+    // MARK: Private method
+    /// Setup the source of data
+    private func _dataSourceSetup() {
+        ingredientTableView.dataSource = self
     }
 }

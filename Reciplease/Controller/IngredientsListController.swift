@@ -25,12 +25,6 @@ class IngredientListController: UIViewController {
     // MARK: Actions
     @IBAction func addIngredientButtonTouched() {
         _addIngredient()
-//        self.view.endEditing(true)
-//        guard let ingredient = ingredientTextField.text, !ingredient.isEmpty else { return }
-//
-//        _ingredients.append(ingredient)
-//        ingredientTableView.reloadData()
-//        ingredientTextField.text = ""
     }
     
     @IBAction func clearListButtonTouched() {
